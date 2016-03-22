@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Home.html">
+                    <img alt="Brand" class="brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/2000px-Boostrap_logo.svg.png">
+                </a>
+                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
+                    PERSPECTIV
+                    <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    </button>
+                </p>
+            </div>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Submit</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="GridLayout.html">Grid Layout</a></li>
+                            <li><a target="_blank" href="Glyphicon.html">Glyphicons</a></li>
+                            <li><a target="_blank" href="Buttons.html">Button Groups</a></li>
+                            <li><a target="_blank" href="InputGroups.html">Input Groups</a></li>
+                            <li><a target="_blank" href="DropMenus.html">Dropdowns</a></li>
+                            <li><a target="_blank" href="Navigation.html">Navigation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Search</a></li>
+                    <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom hidden-xs">
+        <div class="container-fluid">
+            <p id="legal-text">@Legal Stuff goes here with social media links</p>
+        </div>
+    </nav>
+
+    <h1 style="margin-bottom: 20px">Submit</h1>
+    <button type="button" class="btn" id="art-submit">Choose File</button>
+    <p id="form-label">Title</p>
+    <input type="text" class="form-control">
+    <p id="form-label">Caption</p>
+    <textarea class="form-control"></textarea>
+    <p id="form-label">Category</p>
+    <select name="Category" id="form-dropdown">
+        <option>Watercolour</option>
+        <option>Acrylic</option>
+        <option>Oil</option>
+        <option>Pencil</option>
+        <option>Digital</option>
+        <option>Photograph</option>
+    </select>
+
+    <div id="privacy-box">
+        <form action="demo_form.asp">
+            <input type="checkbox"> Allow for ratings<br>
+        </form>
+    </div>
+    <div id="privacy-box" style="margin-top: 10px;">
+        <form>
+            <input type="checkbox"> Allow for comments<br>
+        </form>
+    </div>
+
+    <button type="button" class="btn" id="form-submit">Submit</button>
+</body>
+</html>

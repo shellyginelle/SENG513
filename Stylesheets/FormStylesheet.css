@@ -1,0 +1,90 @@
+﻿@font-face {
+    font-family: CodePro;
+    src: url("CODEBold.otf") format("opentype");
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'CodePro';
+}
+
+.brand {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-xs {
+    min-height: 20px;
+    height: 20px;
+}
+
+.navbar-xs .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px;
+}
+
+#legal-text {
+    color: white;
+    font-size: 10px;
+}
+
+#form-label {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#signup-text {
+    margin-top: 50px;
+}
+
+#form-dropdown {
+    width: 100%;
+    height: 30px;
+}
+
+#privacy-box {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=checkbox] {
+    width:20px; 
+    height:20px;
+    margin-right: 20px;
+}
+
+#form-submit {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#art-submit {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#form-signup {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

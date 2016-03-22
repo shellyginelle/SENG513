@@ -1,0 +1,215 @@
+﻿@font-face {
+    font-family: CodePro;
+    src: url("CODEBold.otf") format("opentype");
+}
+
+body {
+    padding-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'CodePro';
+    padding-bottom: 20px;
+}
+
+.brand {
+    width: 20px;
+    height: 20px;
+}
+
+div.col-xs-6, div.col-sm-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+div.home-img1 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://i.ytimg.com/vi/0ebVULQPc-s/maxresdefault.jpg");
+    height: 80vh;
+}
+
+div.home-img2 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://i.ytimg.com/vi/DIfEdXW02MM/maxresdefault.jpg");
+    height: 80vh;
+}
+
+div.home-img3 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url("http://pre02.deviantart.net/edc4/th/pre/i/2011/242/c/b/first_landscape_drawing_by_otaku_takumi13-d48ak45.jpg");
+    height: 80vh;
+}
+
+div.home-img4 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url("http://boredart.com/wp-content/uploads/2014/08/digital-art-19.png");
+    height: 80vh;
+}
+
+#center-text {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.navbar-xs {
+    min-height: 20px;
+    height: 20px;
+}
+
+.navbar-xs .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px;
+}
+
+#legal-text {
+    color: white;
+    font-size: 10px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px)
+{
+    #center-text {
+        font-size: 20px;
+    }
+
+    .second-row {
+        position: relative;
+        margin-top: 42vh;
+    }
+
+    #f1_container {
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .face.back {
+        display: block;
+        text-align: center;
+        background: rgba(222, 222, 222, 0.57);
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.home-img1 {
+        -webkit-filter: opacity(30%);
+        height: 40vh;
+    }
+
+    div.home-img2 {
+        -webkit-filter: opacity(30%);
+        height: 40vh;
+    }
+
+    div.home-img3 {
+        -webkit-filter: opacity(30%);
+        height: 40vh;
+    }
+
+    div.home-img4 {
+        -webkit-filter: opacity(30%);
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    body {
+        padding-bottom: 20px;
+    }
+
+    #f1_container {
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .face.back {
+        display: block;
+        text-align: center;
+        background: rgba(222, 222, 222, 0.57);
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.home-img1 {
+        -webkit-filter: opacity(30%);
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    body {
+        padding-bottom: 20px;
+    }
+
+    #f1_container {
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 80vh;
+    }
+
+    #f1_container {
+        perspective: 1000;
+    }
+
+    #f1_card {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 1.0s linear; 
+    }
+
+    #f1_container:hover #f1_card {
+        transform: rotateY(180deg);
+        box-shadow: -5px 5px 5px #aaa;
+    }
+
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .face.back {
+        display: block;
+        transform: rotateY(180deg);
+        text-align: center;
+        background: rgba(222, 222, 222, 0.57);
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
