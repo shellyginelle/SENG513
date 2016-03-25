@@ -1,7 +1,5 @@
-<?php
-    session_start();
-
-?><!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,15 +54,16 @@
     </nav>
        
     <div class="row">
-        <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
         <div class="col-xs-12 col-sm-6 col-md-6">
+            <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
                 <h1 style="margin-bottom: 20px">Login</h1>
                 <p id="form-label">Gurl whats yo Emaail:</p>
                 <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
                 
                 <p id="form-label">DANKEST PASSWORD</p>
                 <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
-                <button type="login" class="btn" id="form-submit">Login</button>
+                <button type="button" class="btn" id="form-submit">Login</button>
+            </form>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-6">
@@ -73,8 +72,6 @@
             <p>Also, you can recieve feedback from other people around the world, along with ratings, critiques, and much more.</p>
             <button onclick="location.href='Signup.html'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
         </div>
-        </form>
     </div>
-    
 </body>
 </html>
