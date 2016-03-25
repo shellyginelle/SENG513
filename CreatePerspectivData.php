@@ -10,7 +10,7 @@
         echo nl2br ("NICE CONNECTED!\n");
     }
     
-    $sql = "CREATE TABLE IF NOT EXISTS user(userID INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT, Fname CHAR(255) NOT NULL, Lname CHAR(255) NOT NULL, 
+    $sql = "CREATE TABLE IF NOT EXISTS user(userID INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT, Fname CHAR(255) NOT NULL, Lname CHAR(255) NOT NULL, username CHAR(255) NOT NULL,
 	email VARCHAR(255) NULL, password VARCHAR(255) NOT NULL)";
 	if(mysqli_query($link, $sql))
 	{

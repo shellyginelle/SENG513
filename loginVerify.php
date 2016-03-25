@@ -27,6 +27,8 @@
     } 
     else 
     {
-         echo nl2br ("OH MAN WRONG EMAIL OR PASSWORD\n");
+         echo nl2br ("OH MAN WRONG EMAIL OR PASSWORD? KAPPA!\n");
     }
+    
+    mysqli_close($link);
 ?>

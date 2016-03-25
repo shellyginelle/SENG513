@@ -1,3 +1,7 @@
+<?php
+    session_start();
+
+?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -55,51 +59,59 @@
     <h1 style="margin-bottom: 20px;">Create an Account</h1>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6">
-            <p id="form-label">First Name</p>
-            <input type="text" class="form-control">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-            <p id="form-label">Last Name</p>
-            <input type="text" class="form-control" id="basic-url">
-        </div>
-        <div class="col-xs-12">
-            <p id="form-label">UserName</p>
-            <input type="text" class="form-control" id="basic-url" />
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-            <p id="form-label">Password:</p>
-            <input type="password" class="form-control">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-            <p id="form-label">Re-enter your pusheen password</p>
-            <input type="password" class="form-control" id="basic-url">
-        </div>
-        <div class="col-xs-12">
-            <p id="form-label">Email</p>
-            <input type="text" class="form-control" id="basic-url" />
-        </div>
-        <div class="col-xs-12">
-            <p id="form-label">Re-Enter Email</p>
-            <input type="text" class="form-control" id="basic-url" />
-        </div>
-        <div class="col-xs-12">
-            <p id="form-label">Country</p>
-            <select name="Country" id="form-dropdown">
-                <option>Canada</option>
-                <option>United States</option>
-                <option>Europe</option>
-                <option>Australia</option>
-            </select>
-        </div>
-        <div class="col-xs-12" id="privacy-box">
-            <form>
-                <input type="checkbox"> I agree to this <a href="#">Privacy Agreement</a><br>
-            </form>
-        </div>
+        <form class = "form-signup" name = "signupForm" method = "post" action = "signupPage.php">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p id="form-label">First Name</p>
+                <input name="firstname" id="firstname" type="text" class="form-control" autofocus>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p id="form-label">Last Name</p>
+                <input name = "lastname" id = "lastname" input type="text" class="form-control">
+            </div>
+            
+            <div class="col-xs-12">
+                <p id="form-label">UserName</p>
+                <input name = "username" id = "username" input type="text" class="form-control" />
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p id="form-label">Password:</p>
+                <input name = "password" id = "password" input type="password" class="form-control">
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p id="form-label">Re-enter your pusheen password</p>
+                <input name = "repassword" id ="repassword" input type="password" class="form-control">
+            </div>
+            
+            <div class="col-xs-12">
+                <p id="form-label">Email</p>
+                <input name  = "email" id = "email" input type="text" class="form-control"/>
+            </div>
+            
+            <div class="col-xs-12">
+                <p id="form-label">Re-Enter Email</p>
+                <input name = "reemail" id = "reemail" input type="text" class="form-control" />
+            </div>
+            
+            <div class="col-xs-12">
+                <p id="form-label">Country</p>
+                <select name="Country" id="form-dropdown">
+                    <option>Canada</option>
+                    <option>United States</option>
+                    <option>Europe</option>
+                    <option>Australia</option>
+                </select>
+            </div>
+            
+            <div class="col-xs-12" id="privacy-box">
+                    <input type="checkbox"> I agree to this  <a href="https://s-media-cache-ak0.pinimg.com/736x/b2/87/6e/b2876e6043295d117542c6f05e7ff4f1.jpg"> Privacy Agreement</a><br>
+            </div>
+            <button type="login" class="btn" id="form-submit">Sign Up!</button>
+        </form>
     </div>   
 
-    <button type="button" class="btn" id="form-submit">follow</button>
 
 </body>
 </html>
