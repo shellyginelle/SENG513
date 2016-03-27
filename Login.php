@@ -59,10 +59,10 @@
         <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
         <div class="col-xs-12 col-sm-6 col-md-6">
                 <h1 style="margin-bottom: 20px">Login</h1>
-                <p id="form-label">Gurl whats yo Emaail:</p>
+                <p id="form-label">Email/Username:</p>
                 <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
                 
-                <p id="form-label">DANKEST PASSWORD</p>
+                <p id="form-label">Password</p>
                 <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
                 <button type="login" class="btn" id="form-submit">Login</button>
         </div>

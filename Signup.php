@@ -71,7 +71,7 @@
             </div>
             
             <div class="col-xs-12">
-                <p id="form-label">UserName</p>
+                <p id="form-label">username</p>
                 <input name = "username" id = "username" input type="text" class="form-control" />
             </div>
             
@@ -81,7 +81,7 @@
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6">
-                <p id="form-label">Re-enter your pusheen password</p>
+                <p id="form-label">Re-enter your password</p>
                 <input name = "repassword" id ="repassword" input type="password" class="form-control">
             </div>
             
