@@ -1,7 +1,8 @@
-<?php
+﻿<?php
     session_start();
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -20,7 +21,7 @@
                 <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" id="perspectiv">
+                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -68,27 +69,36 @@
             <p id="legal-text">@Legal Stuff goes here with social media links</p>
         </div>
     </nav>
-       
-    <div class="row">
-        <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-                <h1 id="title">Login</h1>
-                <p id="form-label">Email/Username:</p>
-                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
-                
-                <p id="form-label">Password</p>
-                <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
-                <button type="login" class="btn" id="form-submit">Login</button>
-        </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h1 id="title">Sign Up</h1>
-            <p id="signup-text">Join our website today to comment on art pieces, talk to artists and post your own work!</p>
-            <p>Also, you can recieve feedback from other people around the world, along with ratings, critiques, and much more.</p>
-            <button onclick="location.href='Signup.php'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
-        </div>
-        </form>
-    </div>
-    
+    <h1 style="margin-bottom: 20px">Submit</h1>
+	
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload" id="fileToUpload" class="btn">
+		<p id="form-label">Title</p>
+		<input name="title" type="text" class="form-control" required>
+		<p id="form-label">Caption</p>
+		<textarea name="caption" class="form-control" required></textarea>
+		<p id="form-label">Category</p>
+		<select name="Category" id="form-dropdown">
+			<option>Watercolour</option>
+			<option>Acrylic</option>
+			<option>Oil</option>
+			<option>Pencil</option>
+			<option>Digital</option>
+			<option>Photograph</option>
+		</select>
+		
+		<p id="form-label">Additional Tags (Separate each tag with a comma)</p>
+		<textarea class="form-control" required></textarea>
+
+		<div id="privacy-box">
+			<input type="checkbox" name="rating"> Allow for ratings<br>
+		</div>
+		<div id="privacy-box" style="margin-top: 10px;">
+			<input type="checkbox" name="rating"> Allow for comments<br>
+		</div>
+
+		<button type="login" class="btn" id="form-submit" name="submit">Submit</button>
+	</form>
 </body>
 </html>

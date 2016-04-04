@@ -2,6 +2,7 @@
     session_start();
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +35,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" class="brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/2000px-Boostrap_logo.svg.png">
+                    <img alt="Brand" class="brand" src="Stylesheets/Logo.php">
                 </a>
                 <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
@@ -45,7 +46,10 @@
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Submit</a></li>
+                    <?php 
+						if (isset($_SESSION['login_user']))
+							echo '<li><a href="Submit.php">Submit</a></li>';
+					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
                         <ul class="dropdown-menu">
@@ -59,8 +63,18 @@
                     </li>
                     <li><a href="#">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<?php 
+						if (!isset($_SESSION['login_user']))
+						{
+							echo '<li><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+							echo '<li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+						}
+						
+						else
+						{
+							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+						}
+					?>
                 </ul>
             </div>
         </div>
@@ -126,7 +140,7 @@
             </div>
 			
 			<div class="col-xs-12">
-				<button type="login" class="btn" id="form-submit">Sign Up!</button>
+				<button type="login" class="btn" id="form-submit">Sign Up</button>
 			</div>
         </form>
     </div>   

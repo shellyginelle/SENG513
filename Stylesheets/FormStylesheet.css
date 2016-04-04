@@ -147,12 +147,6 @@ input[type=checkbox] {
 	font-family: 'CodePro';
 }
 
-#art-submit {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
 #form-signup {
     font-size: 30px;
     text-align: center;
@@ -163,4 +157,8 @@ input[type=checkbox] {
     margin-right: auto;
     display: block;
 	font-family: 'CodePro';
+}
+
+#fileToUpload {
+	margin: 0 auto;
 }

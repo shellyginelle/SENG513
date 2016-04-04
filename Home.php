@@ -1,7 +1,8 @@
-<?php
+﻿<?php
     session_start();
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -11,20 +12,19 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
+    <link rel="stylesheet" href="Stylesheets/HomeStylesheet.css" />
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="Home.php">
+                <a class="navbar-brand" href="#">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" id="perspectiv">
-                    PERSPECTIV
-                    <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
-                        <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    </button>
+                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">PERSPECTIV
+                <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
                 </p>
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
@@ -68,27 +68,64 @@
             <p id="legal-text">@Legal Stuff goes here with social media links</p>
         </div>
     </nav>
-       
+
     <div class="row">
-        <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-                <h1 id="title">Login</h1>
-                <p id="form-label">Email/Username:</p>
-                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
-                
-                <p id="form-label">Password</p>
-                <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
-                <button type="login" class="btn" id="form-submit">Login</button>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <div id="f1_container">
+                <div id="f1_card" class="shadow">
+                    <div class="front face">
+                        <div class="home-img1"></div>
+                    </div>
+                    <div class="back face center">
+                        <span id="center-text">Watercolour</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <div id="f1_container">
+                <div id="f1_card" class="shadow">
+                    <div class="front face">
+                        <div class="home-img2"></div>
+                    </div>
+                    <div class="back face center">
+                        <span id="center-text">Acrylic</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h1 id="title">Sign Up</h1>
-            <p id="signup-text">Join our website today to comment on art pieces, talk to artists and post your own work!</p>
-            <p>Also, you can recieve feedback from other people around the world, along with ratings, critiques, and much more.</p>
-            <button onclick="location.href='Signup.php'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <div id="f1_container">
+                <div id="f1_card" class="shadow">
+                    <div class="second-row">
+                        <div class="front face">
+                            <div class="home-img3"></div>
+                        </div>
+                        <div class="back face center">
+                            <span id="center-text">Pencil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </form>
+
+        <div class="col-xs-6 hidden-sm col-md-3">
+            <div id="f1_container">
+                <div id="f1_card" class="shadow">
+                    <div class="second-row">
+                        <div class="front face">
+                            <div class="home-img4"></div>
+                        </div>
+                        <div class="back face center">
+                            <span id="center-text">Digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
 </body>
 </html>

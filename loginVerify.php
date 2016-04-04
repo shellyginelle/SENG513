@@ -18,11 +18,18 @@
     $sql = "select * from user where password='$user_password' AND email='$email_address'";
     $result = mysqli_query($link,$sql);
     $rows = mysqli_num_rows($result);
+
     if ($rows == 1) 
     {
         echo nl2br ("Welcome to the club \n");
+		
+		$row = mysqli_fetch_row($result);
+		
         $_SESSION['login_user']=$email_address; // Initializing Session
-        header("refresh:5; home.html");
+		$_SESSION['id']=$row[0];
+		
+		echo $_SESSION['id'];
+        header("Location: Home.php");
 
     } 
     else 
