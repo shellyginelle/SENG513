@@ -19,7 +19,7 @@
                 <a class="navbar-brand" href="Home.html">
                     <img alt="Brand" class="brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/2000px-Boostrap_logo.svg.png">
                 </a>
-                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
+                <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -58,7 +58,7 @@
     <div class="row">
         <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
         <div class="col-xs-12 col-sm-6 col-md-6">
-                <h1 style="margin-bottom: 20px">Login</h1>
+                <h1 id="title">Login</h1>
                 <p id="form-label">Email/Username:</p>
                 <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
                 
@@ -68,10 +68,10 @@
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-6">
-            <h1 style="margin=bottom: 20px">Sign Up</h1>
+            <h1 id="title">Sign Up</h1>
             <p id="signup-text">Join our website today to comment on art pieces, talk to artists and post your own work!</p>
             <p>Also, you can recieve feedback from other people around the world, along with ratings, critiques, and much more.</p>
-            <button onclick="location.href='Signup.html'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
+            <button onclick="location.href='Signup.php'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
         </div>
         </form>
     </div>

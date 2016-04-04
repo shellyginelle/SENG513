@@ -1,0 +1,63 @@
+﻿@font-face {
+    font-family: CodePro;
+    src: url("CODEBold.otf") format("opentype");
+}
+
+body {
+    padding-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'CodePro';
+    padding-bottom: 20px;
+}
+
+.brand {
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-xs {
+    min-height: 20px;
+    height: 20px;
+}
+
+.navbar-xs .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px;
+}
+
+#legal-text {
+    color: white;
+    font-size: 10px;
+}
+
+#dedicated-img {
+    width: 100%;
+    max-height: 90vh;
+}
+
+#img-container {
+    padding-bottom: 50px;
+}
+
+.panel > .panel-heading {
+    background-color: #1b1b1b;
+    color: white;
+    background-image: none;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.media-object {
+	width: 64px;
+	height: 64px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+    .panel {
+        margin-top: 5px;
+    }
+}
