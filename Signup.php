@@ -112,7 +112,7 @@
 		?>
 
     <div class="row">
-        <form class = "form-signup" id="signup" name="signupForm" method = "post" action = "signupPage.php">
+        <form class = "form-signup" id="signup" name="signupForm" method = "post" action = "signupPage.php" enctype="multipart/form-data">
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <p id="form-label">First Name</p>
                 <input name="firstname" id="firstname" type="text" class="form-control" autofocus required>
@@ -157,6 +157,13 @@
                     <option>Australia</option>
                 </select>
             </div>
+			
+			<div class="col-xs-7 col-xs-offset-5">
+				<div class="fileUpload btn btn-primary">
+					<span>Choose Avatar</span>
+					<input type="file" name="fileToUpload" id="fileToUpload" class="upload">
+				</div>
+			</div>
             
             <div class="col-xs-12" id="privacy-box">
                    <input type="checkbox"> I agree to this <a href="https://s-media-cache-ak0.pinimg.com/736x/b2/87/6e/b2876e6043295d117542c6f05e7ff4f1.jpg" style="margin-left: 5px"> Privacy Agreement</a><br>

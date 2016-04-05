@@ -162,3 +162,24 @@ input[type=checkbox] {
 #fileToUpload {
 	margin: 0 auto;
 }
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+	margin-left: 2em;
+	text-align: center;
+}
+.fileUpload input.upload {
+    position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+    top: 0;
+    right: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

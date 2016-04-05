@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2016 at 03:08 AM
+-- Generation Time: Apr 05, 2016 at 06:57 AM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -45,7 +45,11 @@ CREATE TABLE IF NOT EXISTS `image` (
 --
 
 INSERT INTO `image` (`UserID`, `ImageID`, `Title`, `Caption`, `Category`, `AllowRating`, `AllowComments`, `Date`, `numViews`) VALUES
-('554900', '1.png', 'Fairy Tail', 'Fairy tail gang with their cool stuff', 'digital', 'T', 'T', '4/5/2016', 0);
+('114744', '1.png', 'Fairy Tail', 'Fairy tail is so cool it''s the best anime everrrrr', 'digital', 'T', 'F', '4/5/2016', 0),
+('114744', '2.jpg', 'Vines', 'Vines are so pretty and stuff', 'digital', 'T', 'F', '4/5/2016', 0),
+('114744', '3.jpg', 'Quote', 'Quote', 'watercolour', 'T', 'F', '4/5/2016', 0),
+('114744', '4.jpg', 'Quote', 'Quote', 'watercolour', 'T', 'F', '4/5/2016', 0),
+('114744', '5.jpg', 'A', 'A', 'watercolour', 'F', 'F', '4/5/2016', 0);
 
 -- --------------------------------------------------------
 
@@ -66,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `tags` (
 --
 
 INSERT INTO `tags` (`UserID`, `ImageID`, `Tag`) VALUES
-('554900', '1.png', 'anime'),
-('554900', '1.png', 'characters'),
-('554900', '1.png', 'Fairy Tail');
+('114744', '1.png', 'anime'),
+('114744', '1.png', 'characters'),
+('114744', '1.png', 'Fairy Tail');
 
 -- --------------------------------------------------------
 
@@ -93,9 +97,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `username`, `email`, `password`, `numImages`) VALUES
-('172058', 'John', 'Cajayon', 'john', 'john@gmail.com', '123', 1),
-('554900', 'Dianna', 'Yim', 'd', 'd@gmail.com', '123', 1),
-('677412', 'Abc', 'Abc', 'abc', 'a@gmail.com', '123', 1);
+('114744', 'Dianna', 'Yim', 'dyim', 'd@gmail.com', '123', 1),
+('745461', 'John', 'Cajayon', 'john', 'john@gmail.com', '123', 0);
 
 --
 -- Constraints for dumped tables

@@ -72,6 +72,29 @@
 
     <h1 id="title">Submit</h1>
 	
+	<div id="result" 
+		<?php 
+			if (!isset($_SESSION['upload']))
+			{ 
+				echo 'style="display: none;">';
+			}
+			
+			else if ($_SESSION['upload'] == false)
+			{
+				echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '<br></div>';
+				echo '';
+			}
+			
+			else 
+			{
+				echo '<div class="alert alert-success" role="alert"><h3>Upload Successful!</h3></div>';
+			}
+						
+			unset($_SESSION['upload']);
+			
+			echo '</div>';
+		?>
+	
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="fileToUpload" id="fileToUpload" class="btn">
 		<p id="form-label">Title</p>

@@ -82,7 +82,7 @@
 		} else {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir . $newfilename)) {
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-				$sql1 = "UPDATE user SET numImages='$imageName'";
+				$sql1 = "UPDATE user SET numImages='$imageName' where UserID='$UserID'";
 				mysqli_query($link, $sql1);
 				
 			} else {
@@ -90,6 +90,13 @@
 			}
 		}
 	} 
+	
+	if ($uploadOk == 1)
+		$_SESSION['upload'] = true;
+	else
+		$_SESSION['upload'] = false;
+	
+	header('Location: Submit.php');
 	
 	mysqli_close($link);
 ?>
