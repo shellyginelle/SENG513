@@ -2,6 +2,7 @@
     session_start();
 
 ?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -12,15 +13,31 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
+	
+	<script>
+		$(document).ready(function () {
+			$('#signup').submit(function(e) {
+				if (!$('input[type=checkbox]:checked').length)
+				{
+					alert("Please check the privacy box!");
+					
+					return false;
+				}
+				
+				return true;
+			});
+		});
+	</script>
+	
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" class="brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/2000px-Boostrap_logo.svg.png">
+                    <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
+                <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -29,7 +46,10 @@
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Submit</a></li>
+                    <?php 
+						if (isset($_SESSION['login_user']))
+							echo '<li><a href="Submit.php">Submit</a></li>';
+					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
                         <ul class="dropdown-menu">
@@ -43,8 +63,18 @@
                     </li>
                     <li><a href="#">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<?php 
+						if (!isset($_SESSION['login_user']))
+						{
+							echo '<li><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+							echo '<li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+						}
+						
+						else
+						{
+							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+						}
+					?>
                 </ul>
             </div>
         </div>
@@ -56,43 +86,66 @@
         </div>
     </nav>
 
-    <h1 style="margin-bottom: 20px;">Create an Account</h1>
+    <h1 id="title">Create an Account</h1>
+	
+	<div id="result" 
+		<?php 
+			if (!isset($_SESSION['created']))
+			{ 
+				echo 'style="display: none;">';
+			}
+			
+			else if ($_SESSION['created'] == FALSE)
+			{
+				echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '<br></div>';
+				echo '';
+			}
+			
+			else 
+			{
+				echo '<div class="alert alert-success" role="alert"><h3>User Created Successfully!</h3></div>';
+			}
+						
+			unset($_SESSION['created']);
+			
+			echo '</div>';
+		?>
 
     <div class="row">
-        <form class = "form-signup" name = "signupForm" method = "post" action = "signupPage.php">
+        <form class = "form-signup" id="signup" name="signupForm" method = "post" action = "signupPage.php">
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <p id="form-label">First Name</p>
-                <input name="firstname" id="firstname" type="text" class="form-control" autofocus>
+                <input name="firstname" id="firstname" type="text" class="form-control" autofocus required>
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <p id="form-label">Last Name</p>
-                <input name = "lastname" id = "lastname" input type="text" class="form-control">
+                <input name = "lastname" id = "lastname" input type="text" class="form-control" required>
             </div>
             
             <div class="col-xs-12">
-                <p id="form-label">username</p>
-                <input name = "username" id = "username" input type="text" class="form-control" />
+                <p id="form-label">Username</p>
+                <input name = "username" id = "username" input type="text" class="form-control" required/>
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <p id="form-label">Password:</p>
-                <input name = "password" id = "password" input type="password" class="form-control">
+                <input name = "password" id = "password" input type="password" class="form-control" required/>
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <p id="form-label">Re-enter your password</p>
-                <input name = "repassword" id ="repassword" input type="password" class="form-control">
+                <input name = "repassword" id ="repassword" input type="password" class="form-control" required/>
             </div>
             
             <div class="col-xs-12">
                 <p id="form-label">Email</p>
-                <input name  = "email" id = "email" input type="text" class="form-control"/>
+                <input name  = "email" id = "email" input type="email" class="form-control" required/>
             </div>
             
             <div class="col-xs-12">
                 <p id="form-label">Re-Enter Email</p>
-                <input name = "reemail" id = "reemail" input type="text" class="form-control" />
+                <input name = "reemail" id = "reemail" input type="email" class="form-control" required/>
             </div>
             
             <div class="col-xs-12">
@@ -106,9 +159,12 @@
             </div>
             
             <div class="col-xs-12" id="privacy-box">
-                    <input type="checkbox"> I agree to this  <a href="https://s-media-cache-ak0.pinimg.com/736x/b2/87/6e/b2876e6043295d117542c6f05e7ff4f1.jpg"> Privacy Agreement</a><br>
+                   <input type="checkbox"> I agree to this <a href="https://s-media-cache-ak0.pinimg.com/736x/b2/87/6e/b2876e6043295d117542c6f05e7ff4f1.jpg" style="margin-left: 5px"> Privacy Agreement</a><br>
             </div>
-            <button type="login" class="btn" id="form-submit">Sign Up!</button>
+			
+			<div class="col-xs-12">
+				<button type="login" class="btn" id="form-submit">Sign Up</button>
+			</div>
         </form>
     </div>   
 

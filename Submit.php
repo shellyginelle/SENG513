@@ -1,4 +1,8 @@
-﻿
+﻿<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -14,10 +18,10 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="Home.html">
-                    <img alt="Brand" class="brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Boostrap_logo.svg/2000px-Boostrap_logo.svg.png">
+                <a class="navbar-brand" href="Home.php">
+                    <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
+                <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -26,7 +30,10 @@
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">My Bio</a></li>
+                    <?php 
+						if (isset($_SESSION['login_user']))
+							echo '<li><a href="Submit.php">Submit</a></li>';
+					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
                         <ul class="dropdown-menu">
@@ -40,8 +47,18 @@
                     </li>
                     <li><a href="#">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<?php 
+						if (!isset($_SESSION['login_user']))
+						{
+							echo '<li><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+							echo '<li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+						}
+						
+						else
+						{
+							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+						}
+					?>
                 </ul>
             </div>
         </div>
@@ -52,26 +69,36 @@
             <p id="legal-text">@Legal Stuff goes here with social media links</p>
         </div>
     </nav>
-       
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <form class = "form-signin" name = "form1" method = "post" action = "loginVerify.php">
-                <h1 style="margin-bottom: 20px">Login</h1>
-                <p id="form-label">Gurl whats yo Emaail:</p>
-                <input name="myusername" id="myusername" type="text" class="form-control" placeholder="Email Address" autofocus>
-                
-                <p id="form-label">DANKEST PASSWORD</p>
-                <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Password">
-                <button type="button" class="btn" id="form-submit">Login</button>
-            </form>
-        </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <h1 style="margin=bottom: 20px">Sign Up</h1>
-            <p id="signup-text">Join our website today to comment on art pieces, talk to artists and post your own work!</p>
-            <p>Also, you can recieve feedback from other people around the world, along with ratings, critiques, and much more.</p>
-            <button onclick="location.href='Signup.html'" type="button" class="btn" id="form-signup" href="Signup.html">Sign Up</button>
-        </div>
-    </div>
+    <h1 id="title">Submit</h1>
+	
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload" id="fileToUpload" class="btn">
+		<p id="form-label">Title</p>
+		<input name="title" type="text" class="form-control" required>
+		<p id="form-label">Caption</p>
+		<textarea name="caption" class="form-control" required></textarea>
+		<p id="form-label">Category</p>
+		<select name="category" id="form-dropdown">
+			<option value="watercolour">Watercolour</option>
+			<option value="acrylic">Acrylic</option>
+			<option value="oil">Oil</option>
+			<option value="pencil">Pencil</option>
+			<option value="digital">Digital</option>
+			<option value="photograph">Photograph</option>
+		</select>
+		
+		<p id="form-label">Additional Tags (Separate each tag with a comma)</p>
+		<textarea class="form-control" name="tags"></textarea>
+
+		<div id="privacy-box">
+			<input type="checkbox" name="rating"> Allow for ratings<br>
+		</div>
+		<div id="privacy-box" style="margin-top: 10px;">
+			<input type="checkbox" name="comments"> Allow for comments<br>
+		</div>
+
+		<button type="login" class="btn" id="form-submit" name="submit">Submit</button>
+	</form>
 </body>
 </html>
