@@ -1,6 +1,5 @@
 ﻿<?php
     session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -103,12 +102,12 @@
 		<textarea name="caption" class="form-control" required></textarea>
 		<p id="form-label">Category</p>
 		<select name="category" id="form-dropdown">
-			<option value="watercolour">Watercolour</option>
-			<option value="acrylic">Acrylic</option>
-			<option value="oil">Oil</option>
-			<option value="pencil">Pencil</option>
-			<option value="digital">Digital</option>
-			<option value="photograph">Photograph</option>
+			<option value="Watercolour">Watercolour</option>
+			<option value="Acrylic">Acrylic</option>
+			<option value="Oil">Oil</option>
+			<option value="Pencil">Pencil</option>
+			<option value="Digital">Digital</option>
+			<option value="Photograph">Photograph</option>
 		</select>
 		
 		<p id="form-label">Additional Tags (Separate each tag with a comma)</p>

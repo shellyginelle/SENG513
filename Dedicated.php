@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
+	session_start();
+
+    $link = mysqli_connect("localhost", "root", "", "seng513_perspectiv");
+
+	if($link === false)
+	{
+		die("ERROR: could not connect" . mysqli_connect_error());
+	}
+	
+?>
+
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,7 +82,16 @@
     <div class="row">
         <div id="outer" class="col-xs-12 col-sm-7 col-md-7">  
             <div id="img-container" class="col-md-7 col-xs-12">
-                <img id="dedicated-img" src="https://davidmceown.files.wordpress.com/2012/08/ctm12_001.jpg">
+				<?php	
+					$filename = $_POST['img'];
+					echo '<img id="dedicated-img" src="' . $filename . '">';
+					
+					$temp = explode("/", $filename);
+					
+					$sql = "select * from image where ImageID='$temp[2]' and UserID='$temp[1]'";
+					$result = mysqli_query($link, $sql);					
+					$row = mysqli_fetch_assoc($result);
+				?>
             </div>
         </div>
 
@@ -77,81 +99,105 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Details</div>
                 <div class="panel-body">
-                    <h3>Title One</h3>
-                    <h4>Caption:</h4>
-                    <p>This is the caption for this image. The user can place whatever text to describe their piece of art here.</p>
-                    <hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
-                    <p>Category: Watercolour</p>
-                    <p><b>Rating: </b>4.2 / 5</p>
-                    <p><b>Number of Views:</b> 412</p>
-                    <p><b>Artist:</b> NameOfArtist</p>
+					<?php
+						echo '<h3>' . $row["Title"] . '</h3>';
+						echo '<h4>Caption:</h4>';
+						echo '<p>' . $row["Caption"] . '</p>';
+						echo '<hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />';
+						echo '<p>Category: ' . $row["Category"] . '</p>';
+						
+						if ($row["AllowRating"] == "T")
+							echo '<p><b>Rating: </b>4.2 / 5</p>';
+						
+						$numViews = $row["numViews"] + 1;
+						
+						echo "<p><b>Number of Views:</b> $numViews</p>";
+						
+						$sql1 = "UPDATE image SET numViews='$numViews' where UserID='$temp[1]' AND ImageID='$temp[2]'";
+						if (!mysqli_query($link, $sql1))
+							echo "ERROR: Could not execute $sql1." . mysqli_error($link);
+						
+						$sql2 = "select username from user where UserID='$temp[1]'";
+						$result2 = mysqli_query($link, $sql2);
+						if (!$result2)
+							echo "ERROR: Could not execute $sql2." . mysqli_error($link);
+						
+						else 
+						{
+							$row1 = mysqli_fetch_row($result2);
+							echo "<p><b>Artist:</b> $row1[0]</p>";
+						}
+					?>
                 </div>
             </div>
         </div>
+		
+		<?php
+			if ($row["AllowComments"] == "T")
+				echo '<div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-7">
+					<div class="panel panel-default">
+						<div class="panel-heading">Comments</div>
+						<div class="panel-body">
+							<ul class="media-list">
+								<li class="media">
+									<div class="media">
+										<div class="media-left media-middle">
+											<img class="media-object" src="http://i50.photobucket.com/albums/f317/GrnDay1213/panda.png">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Panda-Bear1234 says:</h4>
+											<p>Great job, love the artwork youve done!</p>
+											<p style="text-align: right; font-size: 10px;">23 minutes ago</p>
+										</div>
 
-        <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-7">
-            <div class="panel panel-default">
-                <div class="panel-heading">Comments</div>
-                <div class="panel-body">
-                    <ul class="media-list">
-                        <li class="media">
-                            <div class="media">
-                                <div class="media-left media-middle">
-                                    <img class="media-object" src="http://i50.photobucket.com/albums/f317/GrnDay1213/panda.png">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Panda-Bear1234 says:</h4>
-                                    <p>Great job, love the artwork you've done!</p>
-                                    <p style="text-align: right; font-size: 10px;">23 minutes ago</p>
-                                </div>
+										<hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
+									</div>
 
-                                <hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
-                            </div>
+									<div class="media">
+										<div class="media-left media-middle">
+											<img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Time-is-everything says:</h4>
+											<p>Your skill is impecable</p>
+											<p style="text-align: right; font-size: 10px;">3 hours ago</p>
+										</div>
 
-                            <div class="media">
-                                <div class="media-left media-middle">
-                                    <img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Time-is-everything says:</h4>
-                                    <p>Your skill is impecable</p>
-                                    <p style="text-align: right; font-size: 10px;">3 hours ago</p>
-                                </div>
+										<hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
+									</div>
+									
+									<div class="media">
+										<div class="media-left media-middle">
+											<img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Time-is-everything says:</h4>
+											<p>Your skill is impecable</p>
+											<p style="text-align: right; font-size: 10px;">3 hours ago</p>
+										</div>
 
-                                <hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
-                            </div>
-							
-							<div class="media">
-                                <div class="media-left media-middle">
-                                    <img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Time-is-everything says:</h4>
-                                    <p>Your skill is impecable</p>
-                                    <p style="text-align: right; font-size: 10px;">3 hours ago</p>
-                                </div>
+										<hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
+									</div>
+									
+									<div class="media">
+										<div class="media-left media-middle">
+											<img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Time-is-everything says:</h4>
+											<p>Your skill is impecable</p>
+											<p style="text-align: right; font-size: 10px;">3 hours ago</p>
+										</div>
 
-                                <hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
-                            </div>
-							
-							<div class="media">
-                                <div class="media-left media-middle">
-                                    <img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Time-is-everything says:</h4>
-                                    <p>Your skill is impecable</p>
-                                    <p style="text-align: right; font-size: 10px;">3 hours ago</p>
-                                </div>
-
-                                <hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="#" style="text-align: center; display: block; margin-top: -10px; margin-bottom: -10px;">Show additional comments</a>
-                </div>
-            </div>
-        </div>
+										<hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
+									</div>
+								</li>
+							</ul>
+							<a href="#" style="text-align: center; display: block; margin-top: -10px; margin-bottom: -10px;">Show additional comments</a>
+						</div>
+					</div>
+				</div>';
+		?>
     </div>
 </body>
 </html>
