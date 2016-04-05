@@ -33,8 +33,10 @@
 		echo "<p>Account Created Successfully!</p>";
         echo nl2br ("Welcome to the club \n");
 		mkdir("uploads/" . $rnd_id);
-        header("Location: home.php");
+		$_SESSION['created'] = true;
+        header("Location: Signup.php");
 	}
+	
 	else
 	{
 		echo "ERROR: Could not execute $sql." . mysqli_error($link);

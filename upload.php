@@ -27,9 +27,44 @@
 	$temp = explode(".", $_FILES["fileToUpload"]["name"]);
 	$newfilename = $imageName . "." . end($temp);
 	
+	$UserID = $_SESSION['id'];
+	$Title = mysqli_real_escape_string($link,$_POST['title']);
+	$Caption = mysqli_real_escape_string($link,$_POST['caption']);
+	$Category = mysqli_real_escape_string($link,$_POST['category']);
 	
+	$today = getDate();
+	$date = $today['mon'] . "/" . $today['mday'] . "/" . $today['year'];
+	$d = mysqli_real_escape_string($link, $date);
+	$numViews = 0;
 	
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	if (isset($_POST['rating']))
+		$rating = 'T';
+	else
+		$rating = 'F';
+	
+	if (isset($_POST['comments']))
+		$comments = 'T';
+	else
+		$comments = 'F';
+	
+ 	$sql = "Insert into image (UserID, ImageID, Title, Caption, Category, AllowRating, AllowComments, Date, numViews)
+			VALUES ('$UserID', '$newfilename', '$Title', '$Caption', '$Category', '$rating', '$comments', '$d', '$numViews')";
+	
+	if (!mysqli_query($link, $sql))
+		echo "ERROR: Could not execute $sql." . mysqli_error($link);
+	
+	$tags = explode(", ", mysqli_real_escape_string($link,$_POST['tags']));
+	
+	for ($i = 0; $i < count($tags); $i += 1)
+	{
+		$tag = mysqli_real_escape_string($link, $tags[$i]);
+		$sql2 = "Insert into tags (UserID, ImageID, Tag)
+				VALUES ('$UserID', '$newfilename', '$tag')";
+		if (!mysqli_query($link, $sql2))
+			echo "ERROR: Could not execute $sql2." . mysqli_error($link);
+	}
+	
+ 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["submit"])) {
 		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -54,5 +89,7 @@
 				echo "Sorry, there was an error uploading your file.";
 			}
 		}
-	}
+	} 
+	
+	mysqli_close($link);
 ?>

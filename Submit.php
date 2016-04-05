@@ -21,7 +21,7 @@
                 <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">
+                <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -70,7 +70,7 @@
         </div>
     </nav>
 
-    <h1 style="margin-bottom: 20px">Submit</h1>
+    <h1 id="title">Submit</h1>
 	
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="fileToUpload" id="fileToUpload" class="btn">
@@ -79,23 +79,23 @@
 		<p id="form-label">Caption</p>
 		<textarea name="caption" class="form-control" required></textarea>
 		<p id="form-label">Category</p>
-		<select name="Category" id="form-dropdown">
-			<option>Watercolour</option>
-			<option>Acrylic</option>
-			<option>Oil</option>
-			<option>Pencil</option>
-			<option>Digital</option>
-			<option>Photograph</option>
+		<select name="category" id="form-dropdown">
+			<option value="watercolour">Watercolour</option>
+			<option value="acrylic">Acrylic</option>
+			<option value="oil">Oil</option>
+			<option value="pencil">Pencil</option>
+			<option value="digital">Digital</option>
+			<option value="photograph">Photograph</option>
 		</select>
 		
 		<p id="form-label">Additional Tags (Separate each tag with a comma)</p>
-		<textarea class="form-control" required></textarea>
+		<textarea class="form-control" name="tags"></textarea>
 
 		<div id="privacy-box">
 			<input type="checkbox" name="rating"> Allow for ratings<br>
 		</div>
 		<div id="privacy-box" style="margin-top: 10px;">
-			<input type="checkbox" name="rating"> Allow for comments<br>
+			<input type="checkbox" name="comments"> Allow for comments<br>
 		</div>
 
 		<button type="login" class="btn" id="form-submit" name="submit">Submit</button>

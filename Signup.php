@@ -35,7 +35,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" class="brand" src="Stylesheets/Logo.php">
+                    <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
                 <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
@@ -87,6 +87,29 @@
     </nav>
 
     <h1 id="title">Create an Account</h1>
+	
+	<div id="result" 
+		<?php 
+			if (!isset($_SESSION['created']))
+			{ 
+				echo 'style="display: none;">';
+			}
+			
+			else if ($_SESSION['created'] == FALSE)
+			{
+				echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error'] . '<br></div>';
+				echo '';
+			}
+			
+			else 
+			{
+				echo '<div class="alert alert-success" role="alert"><h3>User Created Successfully!</h3></div>';
+			}
+						
+			unset($_SESSION['created']);
+			
+			echo '</div>';
+		?>
 
     <div class="row">
         <form class = "form-signup" id="signup" name="signupForm" method = "post" action = "signupPage.php">

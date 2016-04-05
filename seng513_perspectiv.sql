@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2016 at 09:26 PM
+-- Generation Time: Apr 05, 2016 at 03:08 AM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -33,12 +33,19 @@ CREATE TABLE IF NOT EXISTS `image` (
   `Title` varchar(50) NOT NULL,
   `Caption` text NOT NULL,
   `Category` varchar(50) NOT NULL,
-  `Ratings` varchar(1) NOT NULL,
-  `Comments` varchar(1) NOT NULL,
+  `AllowRating` varchar(1) NOT NULL,
+  `AllowComments` varchar(1) NOT NULL,
   `Date` varchar(10) NOT NULL,
   `numViews` int(11) NOT NULL,
   PRIMARY KEY (`UserID`,`ImageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`UserID`, `ImageID`, `Title`, `Caption`, `Category`, `AllowRating`, `AllowComments`, `Date`, `numViews`) VALUES
+('554900', '1.png', 'Fairy Tail', 'Fairy tail gang with their cool stuff', 'digital', 'T', 'T', '4/5/2016', 0);
 
 -- --------------------------------------------------------
 
@@ -53,6 +60,15 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `Tag` varchar(50) NOT NULL,
   PRIMARY KEY (`UserID`,`ImageID`,`Tag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`UserID`, `ImageID`, `Tag`) VALUES
+('554900', '1.png', 'anime'),
+('554900', '1.png', 'characters'),
+('554900', '1.png', 'Fairy Tail');
 
 -- --------------------------------------------------------
 
@@ -77,11 +93,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `username`, `email`, `password`, `numImages`) VALUES
-('1', 'Andrew', 'Dong', 'd0nGa', 'andrew.mh.dong@gmail.com', 'password', 1),
-('2', 'Andrew', 'Dong', 'DONGMAN', 'andrew@gmail.com', '1234', 1),
-('671379', 'John', 'Cajayon', 'john', 'john@gmail.com', 'john', 1),
-('758458', 'Jhin', 'Canary', 'jhin', 'jhin@gmail.com', '123', 1),
-('800977', 'Abc', 'Abc', 'abc', 'abc@gmail.com', 'abc', 1);
+('172058', 'John', 'Cajayon', 'john', 'john@gmail.com', '123', 1),
+('554900', 'Dianna', 'Yim', 'd', 'd@gmail.com', '123', 1),
+('677412', 'Abc', 'Abc', 'abc', 'a@gmail.com', '123', 1);
 
 --
 -- Constraints for dumped tables
