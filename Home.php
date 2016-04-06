@@ -14,12 +14,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Stylesheets/HomeStylesheet.css" />
     <style type="text/css">
-    body,td,th {
-	font-family: CodePro;
-}
-body {
-	background-color: #FFF;
-}
+
     </style>
 </head>
 <body>
@@ -73,18 +68,20 @@ body {
 
     <nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom">
         <div class="container-fluid">
-       	  <div class="nav navbar-nav navbar-left dropup footer-text">
-            	<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			perspectiv
-    			<span class="caret"></span>
-  				</button>
-        		<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown">
-           		  <li><a href="#">About</a></li>
-	                <li><a href="#">Legal</a></li>
-    	            <li><a href="#">Privacy</a></li>
-        	        <li><a href="#">Jobs</a></li>
-            	    <li><a href="#">Sitemap</a></li>
-	            </ul>
+       	  <div class="footer-text navbar-header">
+				<div class="dropup">
+					<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					perspectiv
+					<span class="caret"></span>
+					</button>
+					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Legal</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Jobs</a></li>
+						<li><a href="#">Sitemap</a></li>
+					</ul>
+				</div>
           </div>
           <ul class="nav navbar-nav navbar-right">
     	     	<li><a class="footer-link" style="padding: 0px 0px" href="http://www.facebook.com">
@@ -95,7 +92,7 @@ body {
                 	<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/></a></li>
 	            <li><a class="footer-link" style="padding: 0px 0px" href="http://www.instagram.com">
                 	<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/></a></li>
-        </ul>
+		</ul>
     	</div>
 </nav>
 
@@ -107,7 +104,7 @@ body {
                         <div class="home-img1"></div>
                     </div>
                     <div class="back face center">
-                        <span id="center-text">Watercolour</span>
+                        <a href="Search.php" id="center-text">Watercolour</span>
                     </div>
                 </div>
             </div>

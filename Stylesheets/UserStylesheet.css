@@ -120,6 +120,8 @@ body {
  -webkit-column-width: 25em;
  -moz-column-gap: .5em;
  -webkit-column-gap: .5em; 
+ padding-left: 15px;
+ padding-right: 15px;
   
 }
 
@@ -129,7 +131,7 @@ body {
  padding:  0; 
  width:98%;
  text-align: center;
- border: none;
+	border: none;
 }
 
 .panel-heading {
