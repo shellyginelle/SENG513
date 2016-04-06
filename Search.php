@@ -72,19 +72,22 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 20px;">
+                <p class="navbar-text" id="perspectiv">
                     PERSPECTIV
                     <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
                         <span class="glyphicon glyphicon-menu-hamburger"></span>
                     </button>
                 </p>
             </div>
-            <div class="collapse navbar-collapse navbar-right" id="Navbar">
+            <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Submit</a></li>
+                    <?php 
+						if (isset($_SESSION['login_user']))
+							echo '<li><a href="Submit.php">Submit</a></li>';
+					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
                         <ul class="dropdown-menu">
@@ -98,13 +101,23 @@
                     </li>
                     <li><a href="#">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<?php 
+						if (!isset($_SESSION['login_user']))
+						{
+							echo '<li><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+							echo '<li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+						}
+						
+						else
+						{
+							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+						}
+					?>
                 </ul>
             </div>
         </div>
     </nav>
-
+	
 	<main class="cd-main-content">
 		<div class="cd-tab-filter-wrapper">
 			<div class="cd-tab-filter">

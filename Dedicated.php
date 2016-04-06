@@ -81,21 +81,19 @@
 
     <div class="row">
         <div id="outer" class="col-xs-12 col-sm-7 col-md-7">  
-            <div id="img-container" class="col-md-7 col-xs-12">
-				<?php	
-					$filename = $_POST['img'];
-					echo '<img id="dedicated-img" src="' . $filename . '">';
-					
-					$temp = explode("/", $filename);
-					
-					$sql = "select * from image where ImageID='$temp[2]' and UserID='$temp[1]'";
-					$result = mysqli_query($link, $sql);					
-					$row = mysqli_fetch_assoc($result);
-				?>
-            </div>
+			<?php	
+				$filename = $_POST['img'];
+				echo '<img id="dedicated-img" src="' . $filename . '">';
+				
+				$temp = explode("/", $filename);
+				
+				$sql = "select * from image where ImageID='$temp[2]' and UserID='$temp[1]'";
+				$result = mysqli_query($link, $sql);					
+				$row = mysqli_fetch_assoc($result);
+			?>
         </div>
 
-        <div class="col-xs-12 col-sm-5 col-md-5">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading">Details</div>
                 <div class="panel-body">
@@ -127,7 +125,10 @@
 							$row1 = mysqli_fetch_row($result2);
 							echo "<p><b>Artist:</b> $row1[0]</p>";
 						}
+						
+						
 					?>
+					
                 </div>
             </div>
         </div>
@@ -153,6 +154,19 @@
 										<hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
 									</div>
 
+									<div class="media">
+										<div class="media-left media-middle">
+											<img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Time-is-everything says:</h4>
+											<p>Your skill is impecable</p>
+											<p style="text-align: right; font-size: 10px;">3 hours ago</p>
+										</div>
+
+										<hr align="middle" style="width: 100%; margin-top: 15px; margin-bottom: 15px;" />
+									</div>
+									
 									<div class="media">
 										<div class="media-left media-middle">
 											<img class="media-object" src="http://www.danpontefract.com/wp-content/uploads/2013/05/watch.jpg">

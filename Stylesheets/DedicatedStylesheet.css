@@ -33,14 +33,9 @@ body {
 }
 
 #dedicated-img {
-	margin-top: 20px;
     width: 100%;
-    max-height: 90vh;
-}
-
-#img-container {
-    padding-bottom: 50px;
-	text-align: center;
+    max-height: 80vh;
+	
 }
 
 .panel > .panel-heading {
@@ -66,10 +61,17 @@ body {
 
 @media only screen and (min-width: 992px) {
 	#outer {
-		position: relative;
-	}
-	
-	#img-container {
+		height: 100%;
 		position: fixed;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+
+		align-items: center;
+		margin-top: -60px;
 	}
 }

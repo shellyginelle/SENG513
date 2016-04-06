@@ -65,7 +65,7 @@ Main Components
 }
 .cd-main-content.is-fixed .cd-filter form {
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .cd-main-content.is-fixed .cd-filter-trigger {
