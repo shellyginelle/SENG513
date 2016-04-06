@@ -69,9 +69,41 @@ div.home-img4 {
     line-height: 20px;
 }
 
-#legal-text {
+.footer-text {
     color: white;
     font-size: 10px;
+}
+
+.footer-text > button {
+	border: none;	
+}
+
+.footer-link {
+	padding: 0px 0px;	
+}
+
+.footer-btn {
+	width: 20px;
+	height: 20px;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.navbar-fixed-bottom {
+	padding-bottom: 30px;	
+}
+
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+  &>li>a{
+    color: #999;
+    &:hover{
+      color: #fff;
+      background-color: #000;
+    }
+  }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 767px)

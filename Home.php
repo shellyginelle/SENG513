@@ -13,6 +13,14 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Stylesheets/HomeStylesheet.css" />
+    <style type="text/css">
+    body,td,th {
+	font-family: CodePro;
+}
+body {
+	background-color: #FFF;
+}
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,7 +43,7 @@
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
-                        <ul class="dropdown-menu">
+                      <ul class="dropdown-menu">
                             <li><a target="_blank" href="GridLayout.html">Grid Layout</a></li>
                             <li><a target="_blank" href="Glyphicon.html">Glyphicons</a></li>
                             <li><a target="_blank" href="Buttons.html">Button Groups</a></li>
@@ -63,11 +71,33 @@
         </div>
     </nav>
 
-    <nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom hidden-xs">
+    <nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom">
         <div class="container-fluid">
-            <p id="legal-text">@Legal Stuff goes here with social media links</p>
-        </div>
-    </nav>
+       	  <div class="nav navbar-nav navbar-left dropup footer-text">
+            	<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			perspectiv
+    			<span class="caret"></span>
+  				</button>
+        		<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown">
+           		  <li><a href="#">About</a></li>
+	                <li><a href="#">Legal</a></li>
+    	            <li><a href="#">Privacy</a></li>
+        	        <li><a href="#">Jobs</a></li>
+            	    <li><a href="#">Sitemap</a></li>
+	            </ul>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+    	     	<li><a class="footer-link" style="padding: 0px 0px" href="http://www.facebook.com">
+                	<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/></a></li>
+        	    <li><a class="footer-link" style="padding: 0px 0px" href="http://www.twitter.com">
+	                <img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/></a></li>
+            	<li><a class="footer-link" style="padding: 0px 0px" href="http://www.tumblr.com">
+                	<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/></a></li>
+	            <li><a class="footer-link" style="padding: 0px 0px" href="http://www.instagram.com">
+                	<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/></a></li>
+        </ul>
+    	</div>
+</nav>
 
     <div class="row">
         <div class="col-xs-6 col-sm-4 col-md-3">
