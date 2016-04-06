@@ -33,12 +33,14 @@ body {
 }
 
 #dedicated-img {
+	margin-top: 20px;
     width: 100%;
     max-height: 90vh;
 }
 
 #img-container {
     padding-bottom: 50px;
+	text-align: center;
 }
 
 .panel > .panel-heading {
