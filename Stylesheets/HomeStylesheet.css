@@ -56,6 +56,7 @@ div.home-img4 {
 #center-text {
     font-size: 30px;
     vertical-align: middle;
+	color: black;
 }
 
 .navbar-xs {
@@ -69,8 +70,7 @@ div.home-img4 {
     line-height: 20px;
 }
 
-.footer-text {
-    color: white;
+a.footer-text {
     font-size: 10px;
 }
 
@@ -106,8 +106,25 @@ div.home-img4 {
   }
 }
 
+#footer-dropdown {
+	color: white;
+}
+
+#hide {
+	margin-left: -15px;
+	list-style: none;
+}
+
+.footer-link {
+	text-decoration: none;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 767px)
 {
+	#footer-link-nav {
+		margin-left: 15px;
+	}
+	
     #center-text {
         font-size: 20px;
     }

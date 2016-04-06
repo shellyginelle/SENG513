@@ -74,12 +74,27 @@
 					perspectiv
 					<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Legal</a></li>
-						<li><a href="#">Privacy</a></li>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Sitemap</a></li>
+					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="#">About</a></li>
+						<li id="footer-link-nav"><a href="#">Legal</a></li>
+						<li id="footer-link-nav"><a href="#">Privacy</a></li>
+						<li id="footer-link-nav"><a href="#">Jobs</a></li>
+						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+						<li role="separator" class="divider visible-xs"></li>
+						<ul class="visible-xs" id="hide">
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.facebook.com">Facebook</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.twitter.com">Twitter</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.tumblr.com">Tumblr</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.instagram.com">Instagram</a></li>
+						</ul>
 					</ul>
 				</div>
           </div>
