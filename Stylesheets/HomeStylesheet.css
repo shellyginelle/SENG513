@@ -4,17 +4,17 @@
 }
 
 body {
-    padding-top: 60px;
+    padding-top: 50px;
     margin-left: 20px;
     margin-right: 20px;
     font-family: 'CodePro';
-    padding-bottom: 20px;
 }
 
 .brand {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
+
 
 div.col-xs-6, div.col-sm-4 {
     padding-left: 5px;
@@ -79,7 +79,8 @@ a.footer-text {
 }
 
 .footer-link {
-	padding: 0px 0px;	
+	padding: 0px 0px;
+	text-decoration: none;	
 }
 
 .footer-btn {
@@ -115,12 +116,14 @@ a.footer-text {
 	list-style: none;
 }
 
-.footer-link {
-	text-decoration: none;
-}
-
 @media only screen and (min-width: 0px) and (max-width: 767px)
 {
+	body {
+		padding-bottom: 50px;
+	}
+	
+	
+	
 	#footer-link-nav {
 		margin-left: 15px;
 	}
@@ -182,7 +185,13 @@ a.footer-text {
 @media only screen and (min-width: 768px) and (max-width: 991px)
 {
     body {
+		padding-top: 60px;
         padding-bottom: 20px;
+    }
+	
+	.brand {
+        margin-right: -10px;
+        margin-top: -3px;
     }
 
     #f1_container {
@@ -217,13 +226,17 @@ a.footer-text {
 @media only screen and (min-width: 992px)
 {
     body {
-        padding-bottom: 20px;
+    }
+	
+	.brand {
+        margin-right: -10px;
+        margin-top: -3px;
     }
 
     #f1_container {
         position: relative;
         z-index: 1;
-        margin-top: 10px;
+        margin-top: 5%;
         margin-bottom: 10px;
         height: 80vh;
     }
@@ -235,9 +248,31 @@ a.footer-text {
     #f1_card {
         width: 100%;
         height: 100%;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+
+		align-items: center;
         transform-style: preserve-3d;
         transition: all 1.0s linear; 
     }
+	
+	.second-row {
+		height: 100%;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+
+		align-items: center;
+	}
 
     #f1_container:hover #f1_card {
         transform: rotateY(180deg);

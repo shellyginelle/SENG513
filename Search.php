@@ -9,8 +9,21 @@
 	
 	$linkchoice = '';
 	
+	if (isset($_GET['category']))
+	{
+		$_SESSION['linkchoice'] = $_GET['category'];
+	}
+	
+	if (isset($_GET['page']) && $_GET['page'] == 'user')
+	{
+		$_SESSION['userpage'] = $_SESSION['id'];
+		header ('Location: UserPage.php');
+	}
+	
 	if (isset($_GET['run']))
 		$linkchoice = $_GET['run'];
+	else if (isset($_SESSION['linkchoice']))
+		$linkchoice = $_SESSION['linkchoice'];
 	
 	$watercolour = "watercolour";
 	$acrylic = "acrylic";
@@ -53,7 +66,8 @@
 				break;
 		}
 	
-	else {
+	else
+	{
 		$sql = $_SESSION['sql'];
 	}
 	
@@ -73,20 +87,18 @@
     <link rel="stylesheet" href="Stylesheets/SearchStylesheet.css" />
 	<link rel="stylesheet" href="Stylesheets/style.css" />
 	
-	<script src="Stylesheets/modernizr.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" id="perspectiv">
-                    PERSPECTIV
-                    <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
-                        <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    </button>
+                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">PERSPECTIV
+                <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
                 </p>
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
@@ -97,16 +109,16 @@
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a target="_blank" href="GridLayout.html">Grid Layout</a></li>
-                            <li><a target="_blank" href="Glyphicon.html">Glyphicons</a></li>
-                            <li><a target="_blank" href="Buttons.html">Button Groups</a></li>
-                            <li><a target="_blank" href="InputGroups.html">Input Groups</a></li>
-                            <li><a target="_blank" href="DropMenus.html">Dropdowns</a></li>
-                            <li><a target="_blank" href="Navigation.html">Navigation</a></li>
+                      <ul class="dropdown-menu">
+                            <li><a href="?category=watercolour">Watercolour</a></li>
+                            <li><a href="?category=acrylic">Acrylic</a></li>
+                            <li><a href="?category=oil">Oil</a></li>
+                            <li><a href="?category=pencil">Pencil</a></li>
+                            <li><a href="?category=digital">Digital</a></li>
+                            <li><a href="?category=photograph">Photograph</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Search</a></li>
+                    <li><a href="Search.php">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
 					<?php 
 						if (!isset($_SESSION['login_user']))
@@ -117,6 +129,7 @@
 						
 						else
 						{
+							echo '<li><a href="?page=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>';
 							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
 						}
 					?>
@@ -124,6 +137,51 @@
             </div>
         </div>
     </nav>
+
+	<nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="footer-text navbar-header">
+				<div class="dropup">
+					<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					perspectiv
+						<span class="caret"></span>
+					</button>
+					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="#">About</a></li>
+						<li id="footer-link-nav"><a href="#">Legal</a></li>
+						<li id="footer-link-nav"><a href="#">Privacy</a></li>
+						<li id="footer-link-nav"><a href="#">Jobs</a></li>
+						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+						<li role="separator" class="divider visible-xs"></li>
+						<ul class="visible-xs" id="hide">
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.facebook.com">Facebook</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.twitter.com">Twitter</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.tumblr.com">Tumblr</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.instagram.com">Instagram</a></li>
+						</ul>
+					</ul>
+				</div>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.facebook.com">
+					<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.twitter.com">
+					<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.tumblr.com">
+					<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.instagram.com">
+					<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/></a></li>
+			</ul>
+		</div>
+	</nav>
 	
 	<main class="cd-main-content">
 		<div class="cd-tab-filter-wrapper">
@@ -145,12 +203,18 @@
 			</div> <!-- cd-tab-filter -->
 		</div> <!-- cd-tab-filter-wrapper -->
 		<section class="cd-gallery">
-			<div class="col-xs-12">
+			<div class="col-xs-12" id="gal">
 				<?php 
 					if (isset($_SESSION['search']))
-						echo "<h2>Results for Titles Containing " . $_SESSION['search'] . ":</h2>";
+						echo "<h2 style='text-align: left;'>Results for Titles Containing " . $_SESSION['search'] . ":</h2>";
 					
 					$t = 0;
+					$noresult = false;
+					
+					if (mysqli_num_rows($result) == 0)
+					{
+						echo '<div class="alert alert-danger">No Results</div>';
+					}
 					
 					while ($row = mysqli_fetch_assoc($result))
 					{						
@@ -163,9 +227,9 @@
 							{
 								$t += 1;
 								
-								if (mysqli_num_rows($result) == $t || mysqli_num_rows($result) == 0)
+								if (mysqli_num_rows($result) == $t)
 								{
-									echo '<div class="alert alert-danger">No Results</div>';
+									echo '<div class="alert alert-danger" >No Results</div>';
 								}
 								continue;
 							}
@@ -190,7 +254,7 @@
 						echo '<h3 class="media-heading">' . $row["Title"] . '</h3>';
 						echo '<p><b>Category: </b>' . $row["Category"] . '</p>';
 						echo '<p><b>Number of Views: </b>' . $row["numViews"] . '</p>';
-						echo '<p><b>Artist: </b>' . $row1[0] . '</p>';
+						echo "<p><b>Artist: </b><a href='?run=" . $user . "'>$row1[0]</a></p>";
 						echo '</div>';
 						echo '</div>';
 						
@@ -201,27 +265,9 @@
 					
 					mysqli_close($link);
 				?>
-
-                <div class="text-center">
-					<ul class="pagination">
-						<li class="disabled">
-							<a href="#">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-						</li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li>
-							<a href="#">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
 			</div>
+			
+			
 		</section> <!-- cd-gallery -->
 
 		<div class="cd-filter">
@@ -279,6 +325,26 @@
 		</div>
 		<a href="#0" class="close-carbon-adv">Close</a>
 	</div> <!-- #carbonads-container -->
+	
+	<div class="text-center" style="<?php if (mysqli_num_rows($result) < 5) echo 'display: none'; ?>">
+		<ul class="pagination">
+			<li class="disabled">
+				<a href="#">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+			</li>
+			<li class="active"><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li>
+				<a href="#">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
 <script src="Stylesheets/jquery-2.1.1.js"></script>
 <script src="Stylesheets/jquery.mixitup.min.js"></script>
 <script src="Stylesheets/main.js"></script> <!-- Resource jQuery -->

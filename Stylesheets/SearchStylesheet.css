@@ -72,9 +72,26 @@ body {
     height: 30px;
 }
 
-#legal-text {
-    color: white;
-    font-size: 10px;
+.media-heading {
+	font-family: 'CodePro';
+}
+
+li.right {
+	float:right;
+}
+
+.media-body {
+    padding-left: 40px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: left;
+}
+
+.media {
+	padding-top: 20px;
+}
+
+.alert-danger {
+	text-align: center;
 }
 
 .navbar-xs {
@@ -88,29 +105,51 @@ body {
     line-height: 20px;
 }
 
-.media-heading {
-	font-family: 'CodePro';
+a.footer-text {
+    font-size: 10px;
 }
 
-li.right {
-	float:right;
+.footer-text > button {
+	border: none;	
 }
 
-.media-body {
-    padding-left: 40px;
-	font-family: 'Open Sans', sans-serif;
+.footer-link {
+	padding: 0px 0px;
+	text-decoration: none;	
 }
 
-#search-box {
-	position: fixed;
-	padding-top: 20px;
-	width: 90%;
+.footer-btn {
+	width: 20px;
+	height: 20px;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
-.media {
-	padding-top: 20px;
+.navbar-fixed-bottom {
+	padding-bottom: 30px;	
 }
 
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+  &>li>a{
+    color: #999;
+    &:hover{
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+
+#footer-dropdown {
+	color: white;
+}
+
+#hide {
+	margin-left: -15px;
+	list-style: none;
+}
 
 @media only screen and (min-width: 0px) and (max-width: 767px) {
 	.media-body {
@@ -131,6 +170,10 @@ li.right {
 	.media-left {
 		margin-left: -20px;
 	}
+	
+	#footer-link-nav {
+		margin-left: 15px;
+	}
 }
 
 @media only screen and (min-width: 992px)
@@ -143,4 +186,23 @@ li.right {
         margin-right: -10px;
         margin-top: -3px;
     }
+	
+	#gal {
+		padding-left: 30%;
+	}
+	
+	.alert-danger {
+		margin-left: -30%;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.brand {
+        margin-right: -10px;
+        margin-top: -3px;
+    }
+	
+	#gal {
+		padding-left: 20%;
+	}
 }

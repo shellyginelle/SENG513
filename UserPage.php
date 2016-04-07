@@ -1,6 +1,18 @@
 <?php
     session_start();
 	
+	if (isset($_GET['page']) && $_GET['page'] == 'user')
+	{
+		$_SESSION['userpage'] = $_SESSION['id'];
+		header ('refresh: 0; Location: UserPage.php');
+	}
+	
+	if (isset($_GET['category']))
+	{
+		$_SESSION['linkchoice'] = $_GET['category'];
+		header('Location: Search.php');
+	}
+	
 	$link = mysqli_connect("localhost", "root", "", "seng513_perspectiv");
 	if($link === false)
 	{
@@ -34,17 +46,16 @@
 	</script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
-                <p class="navbar-text" id="perspectiv">
-                    PERSPECTIV
-                    <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
-                        <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    </button>
+                <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">PERSPECTIV
+                <button type="button" class="btn btn-primary navbar-toggle" data-toggle="collapse" data-target="#Navbar" style="margin-top: -8px">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
                 </p>
             </div>
             <div class="collapse navbar-collapse" id="Navbar">
@@ -55,16 +66,16 @@
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a target="_blank" href="GridLayout.html">Grid Layout</a></li>
-                            <li><a target="_blank" href="Glyphicon.html">Glyphicons</a></li>
-                            <li><a target="_blank" href="Buttons.html">Button Groups</a></li>
-                            <li><a target="_blank" href="InputGroups.html">Input Groups</a></li>
-                            <li><a target="_blank" href="DropMenus.html">Dropdowns</a></li>
-                            <li><a target="_blank" href="Navigation.html">Navigation</a></li>
+                      <ul class="dropdown-menu">
+                            <li><a href="?category=watercolour">Watercolour</a></li>
+                            <li><a href="?category=acrylic">Acrylic</a></li>
+                            <li><a href="?category=oil">Oil</a></li>
+                            <li><a href="?category=pencil">Pencil</a></li>
+                            <li><a href="?category=digital">Digital</a></li>
+                            <li><a href="?category=photograph">Photograph</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Search</a></li>
+                    <li><a href="Search.php">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
 					<?php 
 						if (!isset($_SESSION['login_user']))
@@ -75,6 +86,7 @@
 						
 						else
 						{
+							echo '<li><a href="?page=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>';
 							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
 						}
 					?>
@@ -82,6 +94,51 @@
             </div>
         </div>
     </nav>
+
+	<nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="footer-text navbar-header">
+				<div class="dropup">
+					<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					perspectiv
+						<span class="caret"></span>
+					</button>
+					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="#">About</a></li>
+						<li id="footer-link-nav"><a href="#">Legal</a></li>
+						<li id="footer-link-nav"><a href="#">Privacy</a></li>
+						<li id="footer-link-nav"><a href="#">Jobs</a></li>
+						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+						<li role="separator" class="divider visible-xs"></li>
+						<ul class="visible-xs" id="hide">
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.facebook.com">Facebook</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.twitter.com">Twitter</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.tumblr.com">Tumblr</a></li>
+							<li>
+								<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/>
+								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.instagram.com">Instagram</a></li>
+						</ul>
+					</ul>
+				</div>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.facebook.com">
+					<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.twitter.com">
+					<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.tumblr.com">
+					<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/></a></li>
+				<li><a class="footer-link" style="padding: 0px 0px" href="http://www.instagram.com">
+					<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/></a></li>
+			</ul>
+		</div>
+	</nav>
 	
 	<div class="row">
 		<div class="outer col-md-5 col-sm-12 col-xs-12">
@@ -91,15 +148,33 @@
 					<div class="col-xs-4">
 						<img class="img-responsive img-thumbnail" src="uploads/114744/avatar.jpg" />
 					</div>
-					<div class="col-xs-8">
+					<div class="col-xs-8" id="userinfo">
 						<?php
-							$user = $_SESSION['profile'];
+							if (isset($_SESSION['userpage']))
+							{
+								$user = $_SESSION['id'];
+								unset($_SESSION['userpage']);
+								$_SESSION['page'] = $user;
+							}
+							
+							else if (isset($_SESSION['profile']))
+							{
+								$user = $_SESSION['profile'];
+								unset($_SESSION['profile']);
+								$_SESSION['page'] = $user;
+							}
+							
+							else {
+								$user = $_SESSION['page'];
+							}
+							
+							$_SESSION['page'] = $user;
 							
 							$sql = "select * from user where UserID='$user'";
 							$result = mysqli_query($link,$sql);
 							$row = mysqli_fetch_assoc($result);
 							
-							echo '<h3><b>' . $row["username"] . '</b></h3>';
+							echo '<h3 id="header"><b>' . $row["username"] . '</b></h3>';
 							echo '<p><b>Total Number of Posts: </b>' . $row["numImages"] . '</p>';
 							
 							$sql1 = "select numViews from image where UserID='$user'";
@@ -120,9 +195,6 @@
 									<h4><b>About User</b></h4>';
 							echo '<p><b>Name: </b>' . $row["Fname"] . ' ' . $row["Lname"]. '</p>';
 							echo '<p><b>Email: </b>' . $row["email"] . '</p>';
-							
-							
-							
 						?>
 					</div>
 				</div>
@@ -131,27 +203,61 @@
 
 		<div class="container col-md-7 col-sm-12 col-xs-12 col-md-offset-5">
 			<div class="panel panel-default">
-				<div class="panel-heading">Posts</div>
-				<div class="row" id="img-row">
+				<div class="panel-heading">Posts
+					<div class="btn-group pull-right" style="margin-top: -5px">
+						<a href="?style=masonry" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-th-large"></span>
+						</a>
+						<a href="?style=list" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-th-list"></span>
+						</a>
+					</div>
+				</div>
 					<?php
 						$sql2 = "select * from image where UserID='$user'";
 						$result2 = mysqli_query($link,$sql2);
 						if (!$result2)
 							echo "ERROR: Could not execute $sql2." . mysqli_error($link);
 						
+						if (isset($_GET['style']) && $_GET['style'] != 'list')
+							echo '<div class="row" id="img-row">';
+						else
+							echo '<div class="contain">';
+						
 						while ($row1 = mysqli_fetch_assoc($result2))
 						{
 							$file = "uploads/" . $user . "/" . $row1["ImageID"];
 							
-							echo '<div class="panel panel-default" id="images">
-									<div class="panel-body">';
-							echo '<input type="image" alt="submit" class="img-responsive img-thumbnail" src="' . $file . '" />';
-							echo '</div></div>';
+							if (!isset($_GET['style']) || $_GET['style'] == 'list')
+							{
+								echo '<form class="search" name="search" method="post" action="Dedicated.php">';
+						
+								echo '<div class="media">';
+								echo '<div class="media-left media-middle">';
+								echo '<input type="image" name="img" alt="submit" style="width: 150px;" id="search-img" src="' . $file . '" value="' . $file . '">';
+								echo '</div>';
+								echo '<div class="media-body">';
+								echo '<h4 class="media-heading">' . $row1["Title"] . '</h4>';
+								echo '<p><b>Category: </b>' . $row1["Category"] . '</p>';
+								echo '<p><b>Number of Views: </b>' . $row1["numViews"] . '</p>';
+								echo '</div>';
+								echo '</div>';
+							}
+							
+							else {
+								echo '<form class="search" name="search" method="post" action="Dedicated.php">';
+									echo '<div class="panel panel-default" id="images">
+											<div class="panel-body">';
+									echo '<input type="image" alt="submit" name="img" class="img-responsive img-thumbnail" src="' . $file . '" value="' . $file . '"/>';
+									echo '</div></div>';
+								echo '</form>';
+							}
 						}
+						
+						echo '</div>';
 						
 					?>
 	
-				</div>
 			</div>
 		</div>
 	</div>

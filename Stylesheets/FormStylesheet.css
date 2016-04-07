@@ -68,42 +68,55 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-#perspectiv {
-	color: white; 
-	font-weight: bold; 
-	font-size: 18px;
-	font-family: 'CodePro';
-}
-
-#title {
-	font-family: 'CodePro';
-	margin-bottom: 20px
-}
-
-.nav {
-	font-family: 'CodePro';
-}
-
 .brand {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 
-.navbar-xs {
-    min-height: 20px;
-    height: 20px;
-	font-family: 'CodePro';
-}
-
-.navbar-xs .navbar-nav > li > a {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    line-height: 20px;
-}
-
-#legal-text {
-    color: white;
+a.footer-text {
     font-size: 10px;
+}
+
+.footer-text > button {
+	border: none;	
+}
+
+.footer-link {
+	padding: 0px 0px;
+	text-decoration: none;	
+}
+
+.footer-btn {
+	width: 20px;
+	height: 20px;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.navbar-fixed-bottom {
+	padding-bottom: 30px;	
+}
+
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+  &>li>a{
+    color: #999;
+    &:hover{
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+
+#footer-dropdown {
+	color: white;
+}
+
+#hide {
+	margin-left: -15px;
+	list-style: none;
 }
 
 #form-label {
