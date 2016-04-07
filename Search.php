@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
 	
 	$link = mysqli_connect("localhost", "root", "", "seng513_perspectiv");
@@ -197,12 +197,12 @@
 		</section> <!-- cd-gallery -->
 
 		<div class="cd-filter">
-			<form>
+			<form class = "form-search" name = "form-search" method = "post" action = "searchResults.php">
 				<div class="cd-filter-block">
 					<h4>Search</h4>
 					
 					<div class="cd-filter-content">
-						<input type="search">
+						<input type="search" name ="SearchField" id = "SearchField">
 					</div> <!-- cd-filter-content -->
 				</div> <!-- cd-filter-block -->
 				
