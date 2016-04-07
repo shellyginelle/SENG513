@@ -13,10 +13,12 @@
     $search_field = mysqli_real_escape_string($link, $_POST['SearchField']);
     //echo "$search_field";
 
-    $sql = "SELECT numViews,Date,Category,Title FROM image
-            WHERE Title = '$search_field'";
+    $sql = "SELECT * FROM image
+            WHERE Title LIKE '%$search_field%'";
+	$_SESSION['sql'] = $sql;
+	$result = mysqli_query($link,$sql);
 
-    if($result = mysqli_query($link, $sql))
+    if($result)
 	{
 		if(mysqli_num_rows($result) > 0)
 		{
@@ -28,13 +30,16 @@
 					echo"<th>CATEGORY:</th>";
 					echo"<th>\tNumber of views:</th>";
 				echo"</tr>";
+			$_SESSION['results'] = $result;
+			$_SESSION['search'] = $search_field;
 				
 			while($row = mysqli_fetch_array($result))
 			{
 				echo "<tr>";
 					echo "<td>" . $row['Title']. "</td>";
 					echo "<td>" . $row['Date']. "</td>";	
-					echo "<td>" . $row['Category']. "</td>";							echo "<td>" . $row['numViews']. "</td>";
+					echo "<td>" . $row['Category']. "</td>";							
+					echo "<td>" . $row['numViews']. "</td>";
 
 				echo "</tr>";
 			}
@@ -50,8 +55,12 @@
 		}
 		
 	}
+	
+	else {
+		echo "ERROR: Could not execute $sql." . mysqli_error($link);
+	}
 
-    
+	header('Location: Search.php');
 ?>
 
 

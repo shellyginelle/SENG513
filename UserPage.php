@@ -1,5 +1,11 @@
 <?php
     session_start();
+	
+	$link = mysqli_connect("localhost", "root", "", "seng513_perspectiv");
+	if($link === false)
+	{
+		die("ERROR: could not connect" . mysqli_connect_error());
+	}
 ?>
 
 <!DOCTYPE html>
@@ -80,19 +86,44 @@
 	<div class="row">
 		<div class="outer col-md-5 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h3>My Bio<h3></div>
+				<div class="panel-heading">My Bio</div>
 				<div class="panel-body">
 					<div class="col-xs-4">
 						<img class="img-responsive img-thumbnail" src="uploads/114744/avatar.jpg" />
 					</div>
 					<div class="col-xs-8">
-						<h3><b>Dyim</b></h3>
-						<p><b>Total of Posts:</b> 219</p>
-						<p><b>Total Page Views:</b> 219</p>
-						<hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
-						<h4><b>About User</b></h4>
-						<p><b>Name: </b>Dianna Yim</p>
-						<p><b>Email: </b>d@gmail.com</p>
+						<?php
+							$user = $_SESSION['profile'];
+							
+							$sql = "select * from user where UserID='$user'";
+							$result = mysqli_query($link,$sql);
+							$row = mysqli_fetch_assoc($result);
+							
+							echo '<h3><b>' . $row["username"] . '</b></h3>';
+							echo '<p><b>Total Number of Posts: </b>' . $row["numImages"] . '</p>';
+							
+							$sql1 = "select numViews from image where UserID='$user'";
+							$result1 = mysqli_query($link,$sql1);
+							
+							if (!$result1)
+								echo "ERROR: Could not execute $sql1." . mysqli_error($link);
+							
+							$totalpage = 0;
+							
+							while ($row1 = mysqli_fetch_assoc($result1))
+							{
+								$totalpage += intval($row1["numViews"]);
+							}
+							
+							echo "<p><b>Total Page Views: </b>$totalpage</p>";
+							echo '<hr align="middle" style="width: 70%; margin-top: 15px; margin-bottom: 15px;" />
+									<h4><b>About User</b></h4>';
+							echo '<p><b>Name: </b>' . $row["Fname"] . ' ' . $row["Lname"]. '</p>';
+							echo '<p><b>Email: </b>' . $row["email"] . '</p>';
+							
+							
+							
+						?>
 					</div>
 				</div>
 			</div>
@@ -100,32 +131,26 @@
 
 		<div class="container col-md-7 col-sm-12 col-xs-12 col-md-offset-5">
 			<div class="panel panel-default">
-				<div class="panel-heading"><h3>Posts</h3></div>
+				<div class="panel-heading">Posts</div>
 				<div class="row" id="img-row">
-					<div class="panel panel-default" id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/avatar.jpg" /></div>
-					</div>
-					<div class="panel panel-default"id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/4.jpg" /></div>
-					</div>
-					<div class="panel panel-default" id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/3.png" /></div>
-					</div>
-					<div class="panel panel-default" id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/2.jpg" /></div>
-					</div>
-					<div class="panel panel-default"id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/1.jpg" /></div>
-					</div>
-					<div class="panel panel-default" id="images">
-						<div class="panel-body"><input type="image" alt="submit" class="img-responsive img-thumbnail" src="uploads/114744/avatar.jpg" /></div>
-					</div>
-					<div class="panel panel-default"id="images">
-						<div class="panel-body"></div>
-					</div>
-					<div class="panel panel-default" id="images">
-						<div class="panel-body"></div>
-					</div>
+					<?php
+						$sql2 = "select * from image where UserID='$user'";
+						$result2 = mysqli_query($link,$sql2);
+						if (!$result2)
+							echo "ERROR: Could not execute $sql2." . mysqli_error($link);
+						
+						while ($row1 = mysqli_fetch_assoc($result2))
+						{
+							$file = "uploads/" . $user . "/" . $row1["ImageID"];
+							
+							echo '<div class="panel panel-default" id="images">
+									<div class="panel-body">';
+							echo '<input type="image" alt="submit" class="img-responsive img-thumbnail" src="' . $file . '" />';
+							echo '</div></div>';
+						}
+						
+					?>
+	
 				</div>
 			</div>
 		</div>

@@ -9,6 +9,15 @@
 		die("ERROR: could not connect" . mysqli_connect_error());
 	}
 	
+	if (isset($_GET['run']))
+	{
+		$_SESSION['profile'] = $_GET['run'];
+		header('Location: UserPage.php');
+	}
+		
+	else
+		$linkchoice = '';
+	
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +132,7 @@
 						else 
 						{
 							$row1 = mysqli_fetch_row($result2);
-							echo "<p><b>Artist:</b> $row1[0]</p>";
+							echo "<p><b>Artist: </b><a href='?run=" . $temp[1] . "'>$row1[0]</p>";
 						}
 						
 						

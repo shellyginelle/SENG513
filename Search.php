@@ -7,16 +7,10 @@
 		die("ERROR: could not connect" . mysqli_connect_error());
 	}
 	
-	function a () {
-		echo "YAY a";
-	}
-	
 	$linkchoice = '';
 	
 	if (isset($_GET['run']))
 		$linkchoice = $_GET['run'];
-	else
-		$linkchoice = '';
 	
 	$watercolour = "watercolour";
 	$acrylic = "acrylic";
@@ -25,33 +19,46 @@
 	$digital = "digital";
 	$photograph = "photograph";
 	
-	switch ($linkchoice) {
-		case 'all' :
-			$sql = "select * from image";
-		case 'watercolour' :
-			$sql = "select * from image where Category='watercolour'";
-			break;
-		case 'acrylic' :
-			$sql = "select * from image where Category='$acrylic'";
-			break;
-		case 'oil' :
-			$sql = "select * from image where Category='$oil'";
-			break;
-		case 'pencil' :
-			$sql = "select * from image where Category='$pencil'";
-			break;
-		case 'digital' :
-			$sql = "select * from image where Category='$digital'";
-			break;
-		case 'photograph' :
-			$sql = "select * from image where Category='$photograph'";
-			break;
-		default:
-			$sql = "select * from image";
-			break;
+	if ($linkchoice == 'clear')
+	{
+		unset($_SESSION['sql']);
+		unset($_SESSION['search']);
+	}
+	
+	if (!isset($_SESSION['sql']))
+		switch ($linkchoice) {
+			case 'all' :
+				$sql = "select * from image";
+				break;
+			case 'watercolour' :
+				$sql = "select * from image where Category='watercolour'";
+				break;
+			case 'acrylic' :
+				$sql = "select * from image where Category='$acrylic'";
+				break;
+			case 'oil' :
+				$sql = "select * from image where Category='$oil'";
+				break;
+			case 'pencil' :
+				$sql = "select * from image where Category='$pencil'";
+				break;
+			case 'digital' :
+				$sql = "select * from image where Category='$digital'";
+				break;
+			case 'photograph' :
+				$sql = "select * from image where Category='$photograph'";
+				break;
+			default:
+				$sql = "select * from image";
+				break;
+		}
+	
+	else {
+		$sql = $_SESSION['sql'];
 	}
 	
 	$result = mysqli_query($link,$sql);
+	
 ?>
 
 <!DOCTYPE html>
@@ -132,18 +139,39 @@
 					<li class="filter"><a href="?run=pencil">Pencil</a></li>
 					<li class="filter"><a href="?run=digital">Digital</a></li>
 					<li class="filter"><a href="?run=photograph">Photograph</a></li>
+					<li class="filter right"><a href="?run=clear">Clear Search</a></li>
+					
 				</ul> <!-- cd-filters -->
 			</div> <!-- cd-tab-filter -->
 		</div> <!-- cd-tab-filter-wrapper -->
 		<section class="cd-gallery">
 			<div class="col-xs-12">
 				<?php 
-					$watercolour = "watercolour";
+					if (isset($_SESSION['search']))
+						echo "<h2>Results for Titles Containing " . $_SESSION['search'] . ":</h2>";
 					
-					$result = mysqli_query($link,$sql);
+					$t = 0;
 					
 					while ($row = mysqli_fetch_assoc($result))
-					{
+					{						
+						if ($linkchoice == '')
+							$linkchoice = "all";
+						
+						if (isset($_SESSION['search']))
+						{
+							if (strcasecmp($linkchoice, $row["Category"]) != 0 && strcasecmp($linkchoice, "all") != 0)
+							{
+								$t += 1;
+								
+								if (mysqli_num_rows($result) == $t || mysqli_num_rows($result) == 0)
+								{
+									echo '<div class="alert alert-danger">No Results</div>';
+								}
+								continue;
+							}
+							
+						}
+							
 						$dir = "uploads/" . $row['UserID'] . "/" . $row['ImageID'];
 						
 						$user = $row["UserID"];
@@ -230,8 +258,8 @@
 							<select class="filter" name="results" id="results">
 								<option value="">Choose an option</option>
 								<option value="10">10</option>
-								<option value="20">20/option>
-								<option value="50">50/option>
+								<option value="20">20</option>
+								<option value="50">50</option>
 							</select>
 						</div> <!-- cd-select -->
 					</div> <!-- cd-filter-content -->
@@ -245,7 +273,7 @@
 
 		<a href="#0" class="cd-filter-trigger">Filters</span></a>
 	</main> <!-- cd-main-content -->
-<div id="carbonads-container">
+	<div id="carbonads-container">
 		<div class="carbonad">
 			<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=codyhouseco" id="_carbonads_js"></script>
 		</div>
