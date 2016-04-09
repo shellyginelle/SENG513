@@ -10,7 +10,7 @@
 	}
     else {
         echo nl2br ("NICE CONNECTED!\n");
-    }	
+    }
 	
 	$sql = "select numImages from user where UserID='{$_SESSION['id']}'";
 	$result = mysqli_query($link,$sql);
@@ -21,7 +21,7 @@
 	
 	echo $target_dir;
 	
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	$target_file = basename($_FILES["fileToUpload"]["name"]);
 	$uploadOk = 1;
 	
 	$temp = explode(".", $_FILES["fileToUpload"]["name"]);
@@ -47,22 +47,8 @@
 	else
 		$comments = 'F';
 	
- 	$sql = "Insert into image (UserID, ImageID, Title, Caption, Category, AllowRating, AllowComments, Date, numViews)
-			VALUES ('$UserID', '$newfilename', '$Title', '$Caption', '$Category', '$rating', '$comments', '$d', '$numViews')";
-	
-	if (!mysqli_query($link, $sql))
-		echo "ERROR: Could not execute $sql." . mysqli_error($link);
-	
-	$tags = explode(", ", mysqli_real_escape_string($link,$_POST['tags']));
-	
-	for ($i = 0; $i < count($tags); $i += 1)
-	{
-		$tag = mysqli_real_escape_string($link, $tags[$i]);
-		$sql2 = "Insert into tags (UserID, ImageID, Tag)
-				VALUES ('$UserID', '$newfilename', '$tag')";
-		if (!mysqli_query($link, $sql2))
-			echo "ERROR: Could not execute $sql2." . mysqli_error($link);
-	}
+	echo "RAWR";
+	echo $_FILES["fileToUpload"]["error"];
 	
  	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	// Check if image file is a actual image or fake image
@@ -84,6 +70,12 @@
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 				$sql1 = "UPDATE user SET numImages='$imageName' where UserID='$UserID'";
 				mysqli_query($link, $sql1);
+				
+				$sql = "Insert into image (UserID, ImageID, Title, Caption, Category, AllowRating, AllowComments, Date, numViews)
+					VALUES ('$UserID', '$newfilename', '$Title', '$Caption', '$Category', '$rating', '$comments', '$d', '$numViews')";
+			
+				if (!mysqli_query($link, $sql))
+					echo "ERROR: Could not execute $sql." . mysqli_error($link);
 				
 			} else {
 				echo "Sorry, there was an error uploading your file.";

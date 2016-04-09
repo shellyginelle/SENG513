@@ -1,20 +1,16 @@
 ﻿<?php
     session_start();
 
-	if (isset($_GET['run']))
+	if (isset($_GET['page']) && $_GET['page'] == 'user')
 	{
-		if ($_GET['run'] == 'user')
-		{
-			$_SESSION['userpage'] = $_SESSION['id'];
-			header ('Location: UserPage.php');
-		}	
-		
-		else 
-		{
-			$_SESSION['linkchoice'] = $_GET['run'];
-		
-			header('Location: Search.php');
-		}
+		$_SESSION['userpage'] = $_SESSION['id'];
+		header ('Location: UserPage.php');
+	}
+	
+	if (isset($_GET['category']))
+	{
+		$_SESSION['linkchoice'] = $_GET['category'];
+		header('Location: Search.php');
 	}
 ?>
 
@@ -33,10 +29,10 @@
     </style>
 </head>
 <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="Home.php">
                     <img alt="Brand" class="brand" src="Stylesheets/Logo.jpg">
                 </a>
                 <p class="navbar-text" style="color: white; font-weight: bold; font-size: 18px;">PERSPECTIV
@@ -53,13 +49,13 @@
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
-                      <ul class="dropdown-menu">
-                            <li><a href="?run=watercolour">Watercolour</a></li>
-                            <li><a href="?run=acrylic">Acrylic</a></li>
-                            <li><a href="?run=oil">Oil</a></li>
-                            <li><a href="?run=pencil">Pencil</a></li>
-                            <li><a href="?run=digital">Digital</a></li>
-                            <li><a href="?run=photograph">Photograph</a></li>
+						<ul class="dropdown-menu">
+                            <li><a href="?category=watercolour">Watercolour</a></li>
+                            <li><a href="?category=acrylic">Acrylic</a></li>
+                            <li><a href="?category=oil">Oil</a></li>
+                            <li><a href="?category=pencil">Pencil</a></li>
+                            <li><a href="?category=digital">Digital</a></li>
+                            <li><a href="?category=photograph">Photograph</a></li>
                         </ul>
                     </li>
                     <li><a href="Search.php">Search</a></li>
@@ -73,7 +69,14 @@
 						
 						else
 						{
-							echo '<li><a href="?run=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>';
+							echo '<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="Edit.php">Edit Profile</a></li>
+										<li class="divider"></li>
+										<li><a href="?page=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+									</ul>
+								</li>';
 							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
 						}
 					?>
@@ -126,50 +129,6 @@
 			</ul>
 		</div>
 	</nav>
-    <nav class="navbar navbar-xs navbar-inverse navbar-fixed-bottom">
-        <div class="container-fluid">
-       	  <div class="footer-text navbar-header">
-				<div class="dropup">
-					<button class="btn dropdown-toggle inverse-dropdown" type="button" id="footer-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					perspectiv
-					<span class="caret"></span>
-					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="#">About</a></li>
-						<li id="footer-link-nav"><a href="#">Legal</a></li>
-						<li id="footer-link-nav"><a href="#">Privacy</a></li>
-						<li id="footer-link-nav"><a href="#">Jobs</a></li>
-						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
-						<li role="separator" class="divider visible-xs"></li>
-						<ul class="visible-xs" id="hide">
-							<li>
-								<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/>
-								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.facebook.com">Facebook</a></li>
-							<li>
-								<img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/>
-								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.twitter.com">Twitter</a></li>
-							<li>
-								<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/>
-								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.tumblr.com">Tumblr</a></li>
-							<li>
-								<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/>
-								<a class="footer-link" style="padding: 0px 0px; color: #8D8D8D;" href="http://www.instagram.com">Instagram</a></li>
-						</ul>
-					</ul>
-				</div>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-    	     	<li><a class="footer-link" style="padding: 0px 0px" href="http://www.facebook.com">
-                	<img class="footer-btn" src="Assets/brand_assets/fb/FB-f-Logo__white_29.png"/></a></li>
-        	    <li><a class="footer-link" style="padding: 0px 0px" href="http://www.twitter.com">
-	                <img class="footer-btn" src="Assets/brand_assets/twitter/TwitterLogo_white.png"/></a></li>
-            	<li><a class="footer-link" style="padding: 0px 0px" href="http://www.tumblr.com">
-                	<img class="footer-btn" src="Assets/brand_assets/tumblr/tumblr_logo_white_transparent-32.png"/></a></li>
-	            <li><a class="footer-link" style="padding: 0px 0px" href="http://www.instagram.com">
-                	<img class="footer-btn" src="Assets/brand_assets/insta/ig_glyph_logo.png"/></a></li>
-		</ul>
-    	</div>
-</nav>
 
     <div class="row">
         <div class="col-xs-6 col-sm-4 col-md-3">
@@ -179,7 +138,7 @@
                         <div class="home-img1"></div>
                     </div>
                     <div class="back face center">
-                        <a href="?run=watercolour" id="center-text">Watercolour</a>
+                        <a href="?category=watercolour" id="center-text">Watercolour</a>
                     </div>
                 </div>
             </div>
@@ -192,7 +151,7 @@
                         <div class="home-img2"></div>
                     </div>
                     <div class="back face center">
-                        <a href="?run=acrylic" id="center-text">Acrylic</a>
+                        <a href="?category=acrylic" id="center-text">Acrylic</a>
                     </div>
                 </div>
             </div>
@@ -206,7 +165,7 @@
                             <div class="home-img3"></div>
                         </div>
                         <div class="back face center">
-                            <a href="?run=pencil" id="center-text">Pencil</a>
+                            <a href="?category=pencil" id="center-text">Pencil</a>
                         </div>
                     </div>
                 </div>
@@ -221,7 +180,7 @@
                             <div class="home-img4"></div>
                         </div>
                         <div class="back face center">
-                            <a href="?run=digital" id="center-text">Digital</a>
+                            <a href="?category=digital" id="center-text">Digital</a>
                         </div>
                     </div>
                 </div>

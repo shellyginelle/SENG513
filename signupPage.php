@@ -67,6 +67,8 @@
 	
 	else
 	{
+		$_SESSION['created'] = false;
+		header('Location: Signup.php');
 		echo "ERROR: Could not execute $sql." . mysqli_error($link);
 	} 
 	

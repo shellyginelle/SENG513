@@ -68,57 +68,6 @@ body {
 	font-family: 'CodePro';
 }
 
-.brand {
-    width: 30px;
-    height: 30px;
-}
-
-a.footer-text {
-    font-size: 10px;
-}
-
-.footer-text > button {
-	border: none;	
-}
-
-.footer-link {
-	padding: 0px 0px;
-	text-decoration: none;	
-}
-
-.footer-btn {
-	width: 20px;
-	height: 20px;
-	margin-top: 4px;
-	margin-left: 4px;
-	margin-right: 4px;
-}
-
-.navbar-fixed-bottom {
-	padding-bottom: 30px;	
-}
-
-.inverse-dropdown{
-  background-color: #222;
-  border-color: #080808;
-  &>li>a{
-    color: #999;
-    &:hover{
-      color: #fff;
-      background-color: #000;
-    }
-  }
-}
-
-#footer-dropdown {
-	color: white;
-}
-
-#hide {
-	margin-left: -15px;
-	list-style: none;
-}
-
 .panel > .panel-heading {
     background-color: #1b1b1b;
     color: white;

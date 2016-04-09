@@ -51,7 +51,8 @@
 	
     else 
     {
-         echo nl2br ("OH MAN WRONG EMAIL OR PASSWORD? KAPPA!\n");
+         $_SESSION['login-verify'] = false;
+		 header("Location: Login.php");
     }
     
     mysqli_close($link);

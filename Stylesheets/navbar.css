@@ -1,0 +1,91 @@
+@font-face {
+    font-family: CodePro;
+    src: url("CODEBold.otf") format("opentype");
+}
+
+.navbar {
+	font-family: 'CodePro';
+}
+
+.navbar-xs {
+    min-height: 20px;
+    height: 20px;
+}
+
+.navbar-xs .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px;
+}
+
+.brand {
+    width: 30px;
+    height: 30px;
+}
+
+a.footer-text {
+    font-size: 10px;
+}
+
+.footer-text > button {
+	border: none;	
+}
+
+.footer-link {
+	padding: 0px 0px;
+	text-decoration: none;	
+}
+
+.footer-btn {
+	width: 20px;
+	height: 20px;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.navbar-fixed-bottom {
+	padding-bottom: 30px;	
+}
+
+.inverse-dropdown{
+  background-color: #222;
+  border-color: #080808;
+  &>li>a{
+    color: #999;
+    &:hover{
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+
+#footer-dropdown {
+	color: white;
+}
+
+#hide {
+	margin-left: -15px;
+	list-style: none;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {	
+	#footer-link-nav {
+		margin-left: 15px;
+	}	
+}
+
+@media only screen and (min-width: 992px) {
+	.brand {
+        margin-right: -10px;
+        margin-top: -3px;
+    }
+	
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.brand {
+        margin-right: -10px;
+        margin-top: -3px;
+    }
+}

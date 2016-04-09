@@ -30,6 +30,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Stylesheets/UserStylesheet.css" />
+	<link rel="stylesheet" href="Stylesheets/navbar.css" />
 	
 	<script>
 		$(document).ready(function () {
@@ -46,7 +47,7 @@
 	</script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="Home.php">
@@ -66,7 +67,7 @@
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
-                      <ul class="dropdown-menu">
+						<ul class="dropdown-menu">
                             <li><a href="?category=watercolour">Watercolour</a></li>
                             <li><a href="?category=acrylic">Acrylic</a></li>
                             <li><a href="?category=oil">Oil</a></li>
@@ -86,7 +87,14 @@
 						
 						else
 						{
-							echo '<li><a href="?page=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>';
+							echo '<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="Edit.php">Edit Profile</a></li>
+										<li class="divider"></li>
+										<li><a href="?page=user"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+									</ul>
+								</li>';
 							echo '<li><a href="Logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
 						}
 					?>
@@ -146,7 +154,7 @@
 				<div class="panel-heading">My Bio</div>
 				<div class="panel-body">
 					<div class="col-xs-4">
-						<img class="img-responsive img-thumbnail" src="uploads/114744/avatar.jpg" />
+						<img class="img-responsive img-thumbnail" src="uploads/avatar.jpg" />
 					</div>
 					<div class="col-xs-8" id="userinfo">
 						<?php

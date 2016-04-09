@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2016 at 06:57 AM
+-- Generation Time: Apr 09, 2016 at 05:20 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -45,34 +45,13 @@ CREATE TABLE IF NOT EXISTS `image` (
 --
 
 INSERT INTO `image` (`UserID`, `ImageID`, `Title`, `Caption`, `Category`, `AllowRating`, `AllowComments`, `Date`, `numViews`) VALUES
-('114744', '1.png', 'Fairy Tail', 'Fairy tail is so cool it''s the best anime everrrrr', 'digital', 'T', 'F', '4/5/2016', 0),
-('114744', '2.jpg', 'Vines', 'Vines are so pretty and stuff', 'digital', 'T', 'F', '4/5/2016', 0),
-('114744', '3.jpg', 'Quote', 'Quote', 'watercolour', 'T', 'F', '4/5/2016', 0),
-('114744', '4.jpg', 'Quote', 'Quote', 'watercolour', 'T', 'F', '4/5/2016', 0),
-('114744', '5.jpg', 'A', 'A', 'watercolour', 'F', 'F', '4/5/2016', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tags`
---
-
-DROP TABLE IF EXISTS `tags`;
-CREATE TABLE IF NOT EXISTS `tags` (
-  `UserID` varchar(6) NOT NULL,
-  `ImageID` varchar(50) NOT NULL,
-  `Tag` varchar(50) NOT NULL,
-  PRIMARY KEY (`UserID`,`ImageID`,`Tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tags`
---
-
-INSERT INTO `tags` (`UserID`, `ImageID`, `Tag`) VALUES
-('114744', '1.png', 'anime'),
-('114744', '1.png', 'characters'),
-('114744', '1.png', 'Fairy Tail');
+('232797', '1.jpg', 'Waterfall', 'Watercolour waterfall', 'Watercolour', 'T', 'T', '4/7/2016', 0),
+('232797', '2.jpg', 'Forest Tree Waterfall', 'Waterfall inside a forest', 'Photograph', 'T', 'F', '4/7/2016', 0),
+('707890', '1.jpg', 'Peacock', 'Peacock with watercolour medium', 'Watercolour', 'F', 'F', '4/7/2016', 5),
+('707890', '2.jpg', 'Peacock', 'Peacock drawing with watercolour medium', 'Watercolour', 'T', 'T', '4/7/2016', 4),
+('707890', '3.JPG', 'Watercolour Peacock', 'Watercolour peacock', 'Watercolour', 'F', 'F', '4/7/2016', 3),
+('707890', '4.jpg', 'Peacock with Watercolour', 'Watercolour peacock', 'Watercolour', 'F', 'F', '4/7/2016', 4),
+('916577', '1.jpg', 'Deadpool', 'Deadpool with pencil', 'Pencil', 'F', 'T', '4/7/2016', 4);
 
 -- --------------------------------------------------------
 
@@ -89,7 +68,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `numImages` int(11) NOT NULL,
-  PRIMARY KEY (`UserID`)
+  PRIMARY KEY (`UserID`),
+  UNIQUE KEY `username` (`username`,`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -97,8 +77,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `username`, `email`, `password`, `numImages`) VALUES
-('114744', 'Dianna', 'Yim', 'dyim', 'd@gmail.com', '123', 1),
-('745461', 'John', 'Cajayon', 'john', 'john@gmail.com', '123', 0);
+('232797', 'Dianna', 'Yim', 'dianna', 'dianna@gmail.com', '123', 2),
+('707890', 'Shelly', 'Sicat', 'shelly', 'shelly@gmaill.com', '223', 4),
+('765312', 'Andrew', 'Dong', 'andrew', 'andrew@gmail.com', '123', 0),
+('916577', 'John', 'Cajayon', 'john', 'john@gmail.com', '123', 1);
 
 --
 -- Constraints for dumped tables
@@ -109,12 +91,6 @@ INSERT INTO `user` (`UserID`, `Fname`, `Lname`, `username`, `email`, `password`,
 --
 ALTER TABLE `image`
   ADD CONSTRAINT `UserID` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON UPDATE CASCADE;
-
---
--- Constraints for table `tags`
---
-ALTER TABLE `tags`
-  ADD CONSTRAINT `userimg` FOREIGN KEY (`UserID`,`ImageID`) REFERENCES `image` (`UserID`, `ImageID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
