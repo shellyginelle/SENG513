@@ -93,11 +93,11 @@
 					perspectiv
 						<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="About.php">About</a></li>
-						<li id="footer-link-nav"><a href="Legal.php">Legal</a></li>
-						<li id="footer-link-nav"><a href="Jobs.php">Jobs</a></li>
-						<li id="footer-link-nav"><a href="Sitemap.php">Sitemap</a></li>
+					<ul class="dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="About.php" style="color: white">About</a></li>
+						<li id="footer-link-nav"><a href="Legal.php" style="color: white">Legal</a></li>
+						<li id="footer-link-nav"><a href="Jobs.php" style="color: white">Jobs</a></li>
+						<li id="footer-link-nav"><a href="Sitemap.php" style="color: white">Sitemap</a></li>
 						<li role="separator" class="divider visible-xs"></li>
 						<ul class="visible-xs" id="hide">
 							<li>

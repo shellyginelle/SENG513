@@ -25,6 +25,7 @@
 
 a.footer-text {
     font-size: 10px;
+	color: white;
 }
 
 .footer-text > button {
@@ -34,6 +35,10 @@ a.footer-text {
 .footer-link {
 	padding: 0px 0px;
 	text-decoration: none;	
+}
+
+#footer-link-nav.a {
+	color: white;
 }
 
 .footer-btn {
