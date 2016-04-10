@@ -153,10 +153,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">My Bio</div>
 				<div class="panel-body">
-					<div class="col-xs-4">
-						<img class="img-responsive img-thumbnail" src="uploads/avatar.jpg" />
-					</div>
-					<div class="col-xs-8" id="userinfo">
+					<div class="col-xs-4">					
 						<?php
 							if (isset($_SESSION['userpage']))
 							{
@@ -181,6 +178,11 @@
 							$sql = "select * from user where UserID='$user'";
 							$result = mysqli_query($link,$sql);
 							$row = mysqli_fetch_assoc($result);
+							
+							echo '<img class="img-responsive img-thumbnail" src="uploads/' . $user . '/avatar.jpg" />';
+							
+							echo '</div>';
+							echo '<div class="col-xs-8" id="userinfo">';
 							
 							echo '<h3 id="header"><b>' . $row["username"] . '</b></h3>';
 							echo '<p><b>Total Number of Posts: </b>' . $row["numImages"] . '</p>';
