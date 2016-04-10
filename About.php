@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
 
 	if (isset($_GET['page']) && $_GET['page'] == 'user')
@@ -23,12 +23,12 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Stylesheets/HomeStylesheet.css" />
-    <style type="text/css">
-
-    </style>
+    <link rel="stylesheet" href="Stylesheets/navbar.css" />
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
+    <style type="text/css"></style>
 </head>
-<body>
+<body style="padding-top: 60px">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -129,63 +129,9 @@
 		</div>
 	</nav>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="front face">
-                        <div class="home-img1"></div>
-                    </div>
-                    <div class="back face center">
-                        <a href="?category=watercolour" id="center-text">Watercolour</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="front face">
-                        <div class="home-img2"></div>
-                    </div>
-                    <div class="back face center">
-                        <a href="?category=acrylic" id="center-text">Acrylic</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="second-row">
-                        <div class="front face">
-                            <div class="home-img3"></div>
-                        </div>
-                        <div class="back face center">
-                            <a href="?category=pencil" id="center-text">Pencil</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 hidden-sm col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="second-row">
-                        <div class="front face">
-                            <div class="home-img4"></div>
-                        </div>
-                        <div class="back face center">
-                            <a href="?category=digital" id="center-text">Digital</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<h1>about perspectiv</h1>
+    <p>perspectiv is NEW and IMPROVED</p>
+    <p>perspectiv is BETTER</p>
 
 </body>
 </html>

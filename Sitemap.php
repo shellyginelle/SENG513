@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
 
 	if (isset($_GET['page']) && $_GET['page'] == 'user')
@@ -23,12 +23,12 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Stylesheets/HomeStylesheet.css" />
-    <style type="text/css">
-
-    </style>
+    <link rel="stylesheet" href="Stylesheets/navbar.css" />
+    <style type="text/css"></style>
+    <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
+    <style type="text/css"></style>
 </head>
-<body>
+<body style="padding-top: 60px">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -50,12 +50,12 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
 						<ul class="dropdown-menu">
-                            <li><a href="?category=watercolour">Watercolour</a></li>
-                            <li><a href="?category=acrylic">Acrylic</a></li>
-                            <li><a href="?category=oil">Oil</a></li>
-                            <li><a href="?category=pencil">Pencil</a></li>
-                            <li><a href="?category=digital">Digital</a></li>
-                            <li><a href="?category=photograph">Photograph</a></li>
+                            <li><a href="">Watercolour</a></li>
+                            <li><a href="">Acrylic</a></li>
+                            <li><a href="">Oil</a></li>
+                            <li><a href="">Pencil</a></li>
+                            <li><a href="">Digital</a></li>
+                            <li><a href="">Photograph</a></li>
                         </ul>
                     </li>
                     <li><a href="Search.php">Search</a></li>
@@ -129,63 +129,9 @@
 		</div>
 	</nav>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="front face">
-                        <div class="home-img1"></div>
-                    </div>
-                    <div class="back face center">
-                        <a href="?category=watercolour" id="center-text">Watercolour</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="front face">
-                        <div class="home-img2"></div>
-                    </div>
-                    <div class="back face center">
-                        <a href="?category=acrylic" id="center-text">Acrylic</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-4 col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="second-row">
-                        <div class="front face">
-                            <div class="home-img3"></div>
-                        </div>
-                        <div class="back face center">
-                            <a href="?category=pencil" id="center-text">Pencil</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-6 hidden-sm col-md-3">
-            <div id="f1_container">
-                <div id="f1_card" class="shadow">
-                    <div class="second-row">
-                        <div class="front face">
-                            <div class="home-img4"></div>
-                        </div>
-                        <div class="back face center">
-                            <a href="?category=digital" id="center-text">Digital</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<h1>sitemap</h1>
+    <img src="Assets/brand_assets/DogChamp.png" /><img src="Assets/brand_assets/DogChamp.png" /><br />
+    <img src="Assets/brand_assets/DogChamp.png" /><img src="Assets/brand_assets/DogChamp.png" />
 
 </body>
 </html>
