@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
     <style type="text/css"></style>
 </head>
-<body style="padding-top: 60px">
+<body style="padding-top: 60px; padding-bottom: 40px">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -130,8 +130,53 @@
 	</nav>
 
 	<h1>about perspectiv</h1>
-    <p>perspectiv is NEW and IMPROVED</p>
-    <p>perspectiv is BETTER</p>
+    <p>perspectiv began as web design project for a school course and became a real platform for artists wishing to showcase their work.</p>
+    <h1>the team</h1>
+    <div class="media">
+  		<div class="media-left media-middle">
+		    <a href="#">
+	        <img class="media-object" src="Assets/perspectiv/John.png" alt="John" width="64" height="64">
+		    </a>
+		</div>
+    	<div class="media-body">
+  	  		<h4 class="media-heading">john</h4>
+    		john <a href="http://twitch.tv/roboticanxiety">streams videogames sometimes</a> (he's a giant nerd) and consumes way too much pop culture.
+    	</div>
+    </div>
+    <div class="media">
+  		<div class="media-left media-middle">
+		    <a href="#">
+	        <img class="media-object" src="Assets/perspectiv/Shelly.png" alt="Shelly" width="64" height="64">
+		    </a>
+		</div>
+    	<div class="media-body">
+  	  		<h4 class="media-heading">shelly</h4>
+    		shelly is very organized, loves making videos and has <a href="https://www.youtube.com/user/shellyginelle">her
+             own YouTube channel</a>. Please like and subscribe!
+	    </div>
+    </div>
+    <div class="media">
+    	<div class="media-left media-middle">
+		    <a href="#">
+	        <img class="media-object" src="Assets/perspectiv/Dianna.png" alt="Dianna" width="64" height="64">
+		    </a>
+		</div>
+    	<div class="media-body">
+	  	    <h4 class="media-heading">dianna</h4>
+    		dianna loves programming, league of legends and mac and cheese.
+	    </div>
+    </div>
+    <div class="media">
+    	<div class="media-left media-middle">
+		    <a href="#">
+	        <img class="media-object" src="Assets/perspectiv/Andrew.png" alt="Andrew" width="64" height="64">
+		    </a>
+		</div>
+    	<div class="media-body">
+	  	    <h4 class="media-heading">andrew</h4>
+    		andrew loves pusheen so much this is all his bio contains.
+	    </div>
+    </div>
 
 </body>
 </html>

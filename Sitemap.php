@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="Stylesheets/FormStylesheet.css" />
     <style type="text/css"></style>
 </head>
-<body style="padding-top: 60px">
+<body style="padding-top: 60px; padding-bottom: 40px">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -50,12 +50,12 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
 						<ul class="dropdown-menu">
-                            <li><a href="">Watercolour</a></li>
-                            <li><a href="">Acrylic</a></li>
-                            <li><a href="">Oil</a></li>
-                            <li><a href="">Pencil</a></li>
-                            <li><a href="">Digital</a></li>
-                            <li><a href="">Photograph</a></li>
+                            <li><a href="?category=watercolour">Watercolour</a></li>
+                            <li><a href="?category=acrylic">Acrylic</a></li>
+                            <li><a href="?category=oil">Oil</a></li>
+                            <li><a href="?category=pencil">Pencil</a></li>
+                            <li><a href="?category=digital">Digital</a></li>
+                            <li><a href="?category=photograph">Photograph</a></li>
                         </ul>
                     </li>
                     <li><a href="Search.php">Search</a></li>
@@ -93,11 +93,11 @@
 					perspectiv
 						<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="About.php">About</a></li>
-						<li id="footer-link-nav"><a href="Legal.php">Legal</a></li>
-						<li id="footer-link-nav"><a href="Jobs.php">Jobs</a></li>
-						<li id="footer-link-nav"><a href="Sitemap.php">Sitemap</a></li>
+					<ul class="dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="About.php" style="color: white">About</a></li>
+						<li id="footer-link-nav"><a href="Legal.php" style="color: white">Legal</a></li>
+						<li id="footer-link-nav"><a href="Jobs.php" style="color: white">Jobs</a></li>
+						<li id="footer-link-nav"><a href="Sitemap.php" style="color: white">Sitemap</a></li>
 						<li role="separator" class="divider visible-xs"></li>
 						<ul class="visible-xs" id="hide">
 							<li>
@@ -130,8 +130,41 @@
 	</nav>
 
 	<h1>sitemap</h1>
-    <img src="Assets/brand_assets/DogChamp.png" /><img src="Assets/brand_assets/DogChamp.png" /><br />
-    <img src="Assets/brand_assets/DogChamp.png" /><img src="Assets/brand_assets/DogChamp.png" />
+    <div class="panel panel-default">
+
+ 	 <!-- Table -->
+ 	 <table class="table">
+  	  <tr>
+      	<th>perspectiv</th>
+        <th>Categories</th>
+      </tr>
+      <tr>
+
+      	<td><a href="Home.php">Home</a></td>
+        <td><a href="?category=watercolour">Watercolour</a></td>
+      </tr>
+      <tr>
+      	<td><a href="About.php">About</a></td>
+        <td><a href="?category=acrylic">Acrylic</a></td>                            
+      </tr>
+      <tr>
+      	<td><a href="Legal.php">Legal</a></td>
+        <td><a href="?category=oil">Oil</a></td>
+      </tr>
+      <tr>
+      	<td><a href="Jobs.php">Jobs</a></td>
+        <td><a href="?category=pencil">Pencil</a></td>
+      </tr>
+      <tr>
+      	<td><a href="Sitemap.php">Sitemap</a></td>
+        <td><a href="?category=digital">Digital</a></td>
+      </tr>
+      <tr>
+      	<td></td>
+        <td><a href="?category=photograph">Photograph</a></td>
+      </tr>
+ 	 </table>
+	</div>
 
 </body>
 </html>
