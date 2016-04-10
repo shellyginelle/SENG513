@@ -125,7 +125,7 @@
                             <li><a href="?category=photograph">Photograph</a></li>
                         </ul>
                     </li>
-                    <li><a href="Search.php">Search</a></li>
+                    <li class="active"><a href="Search.php">Search</a></li>
                     <li><p class="navbar-text hidden-sm hidden-xs"> | </p></li>
 					<?php 
 						if (!isset($_SESSION['login_user']))
@@ -160,12 +160,11 @@
 					perspectiv
 						<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="#">About</a></li>
-						<li id="footer-link-nav"><a href="#">Legal</a></li>
-						<li id="footer-link-nav"><a href="#">Privacy</a></li>
-						<li id="footer-link-nav"><a href="#">Jobs</a></li>
-						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+					<ul class="dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="About.php" style="color: #8D8D8D">About</a></li>
+						<li id="footer-link-nav"><a href="Legal.php" style="color: #8D8D8D">Legal</a></li>
+						<li id="footer-link-nav"><a href="Jobs.php" style="color: #8D8D8D">Jobs</a></li>
+						<li id="footer-link-nav"><a href="Sitemap.php" style="color: #8D8D8D">Sitemap</a></li>
 						<li role="separator" class="divider visible-xs"></li>
 						<ul class="visible-xs" id="hide">
 							<li>

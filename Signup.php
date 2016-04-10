@@ -77,7 +77,7 @@
 					<?php 
 						if (!isset($_SESSION['login_user']))
 						{
-							echo '<li><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
+							echo '<li class="active"><a href="Signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>';
 							echo '<li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
 						}
 						
@@ -107,12 +107,11 @@
 					perspectiv
 						<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="#">About</a></li>
-						<li id="footer-link-nav"><a href="#">Legal</a></li>
-						<li id="footer-link-nav"><a href="#">Privacy</a></li>
-						<li id="footer-link-nav"><a href="#">Jobs</a></li>
-						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+					<ul class="dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="About.php" style="color: #8D8D8D">About</a></li>
+						<li id="footer-link-nav"><a href="Legal.php" style="color: #8D8D8D">Legal</a></li>
+						<li id="footer-link-nav"><a href="Jobs.php" style="color: #8D8D8D">Jobs</a></li>
+						<li id="footer-link-nav"><a href="Sitemap.php" style="color: #8D8D8D">Sitemap</a></li>
 						<li role="separator" class="divider visible-xs"></li>
 						<ul class="visible-xs" id="hide">
 							<li>

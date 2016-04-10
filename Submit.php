@@ -43,7 +43,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <?php 
 						if (isset($_SESSION['login_user']))
-							echo '<li><a href="Submit.php">Submit</a></li>';
+							echo '<li class="active"><a href="Submit.php">Submit</a></li>';
 					?>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories  <span class="glyphicon glyphicon-menu-down"><small></small></span></a>
@@ -91,12 +91,11 @@
 					perspectiv
 						<span class="caret"></span>
 					</button>
-					<ul class="navbar-nav nav-stacked dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
-						<li id="footer-link-nav"><a href="#">About</a></li>
-						<li id="footer-link-nav"><a href="#">Legal</a></li>
-						<li id="footer-link-nav"><a href="#">Privacy</a></li>
-						<li id="footer-link-nav"><a href="#">Jobs</a></li>
-						<li id="footer-link-nav"><a href="#">Sitemap</a></li>
+					<ul class="dropdown-menu inverse-dropdown" aria-labelledby="footer-dropdown" >
+						<li id="footer-link-nav"><a href="About.php" style="color: #8D8D8D">About</a></li>
+						<li id="footer-link-nav"><a href="Legal.php" style="color: #8D8D8D">Legal</a></li>
+						<li id="footer-link-nav"><a href="Jobs.php" style="color: #8D8D8D">Jobs</a></li>
+						<li id="footer-link-nav"><a href="Sitemap.php" style="color: #8D8D8D">Sitemap</a></li>
 						<li role="separator" class="divider visible-xs"></li>
 						<ul class="visible-xs" id="hide">
 							<li>
@@ -153,7 +152,12 @@
 		?>
 	
 	<form action="upload.php" method="post" enctype="multipart/form-data">
-		<input type="file" name="fileToUpload" id="fileToUpload" class="btn">
+		<div class="col-xs-12">
+			<div class="fileUpload btn btn-primary">
+				<span>Choose Avatar</span>
+				<input type="file" name="fileToUpload" id="fileToUpload" class="upload">
+			</div>
+		</div>
 		<p id="form-label">Title</p>
 		<input name="title" type="text" class="form-control" required>
 		<p id="form-label">Caption</p>
