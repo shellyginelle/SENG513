@@ -154,7 +154,7 @@
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<div class="col-xs-12">
 			<div class="fileUpload btn btn-primary">
-				<span>Choose Avatar</span>
+				<span>Choose File</span>
 				<input type="file" name="fileToUpload" id="fileToUpload" class="upload">
 			</div>
 		</div>

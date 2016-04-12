@@ -178,8 +178,11 @@
 							$result = mysqli_query($link,$sql);
 							$row = mysqli_fetch_assoc($result);
 							
+							echo '<div id="avatar">';
+							
 							echo '<img class="img-responsive img-thumbnail" src="uploads/' . $user . '/avatar.jpg" />';
 							
+							echo '</div>';
 							echo '</div>';
 							echo '<div class="col-xs-8" id="userinfo">';
 							
